@@ -1,0 +1,201 @@
+strong {
+  font-weight: bold;
+}
+.container {
+  margin: 0 auto;
+  width: 70%;
+}
+.tab-class {
+  margin: 0 auto;
+  width: 90%;
+  margin-bottom: 50px;
+}
+.content {
+  margin: 0 auto;
+}
+.el-button {
+  width: 20%;
+  border-radius: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+.card-class {
+  border-radius: 10px;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.cards-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #35a9be;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.el-progress {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cards-name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.custom-input {
+  width: calc(100% - 50px);
+  border-radius: 10px;
+  height: 50px;
+}
+.custom-button {
+  width: calc(100% - 60px);
+  border-radius: 10px;
+  height: 50px;
+  background-color: #f05326;
+  color: #fff;
+}
+
+.custom-button-subskripsi {
+  width: calc(100% - 60px);
+  border-radius: 50px;
+  height: 40px;
+  background-color: #f05326;
+  color: #fff;
+}
+
+.card-redeem {
+  padding: 20px;
+  width: 90%;
+  border-radius: 5px;
+  background-color: #fef1e0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.el-card {
+  margin: 50px auto;
+}
+
+.el-input {
+  margin: 50px;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 24px;
+  text-align: center;
+}
+
+.card-redeem h3 {
+  font-size: 18px;
+}
+
+.item {
+  padding: 18px 0;
+}
+
+.box-card {
+  width: 90%;
+  border-radius: 10px;
+}
+.flex-containerOne {
+  display: flex;
+  justify-content: center;
+}
+
+.col-container {
+  margin: 10px;
+}
+.flex-containerCard {
+  display: flex;
+  justify-content: center;
+  margin-top: -85px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.left-col {
+  order: 2;
+}
+
+.right-col {
+  order: 1;
+  margin: 50px auto;
+}
+
+.right-content {
+  margin: 0 auto;
+  margin-top: 65px;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  text-align: center;
+}
+
+.right-content-subskripsi {
+  float: right;
+  width: 70%;
+}
+
+.right-col-subskripsi {
+  order: 1;
+  margin: 0 auto;
+}
+
+.buttonMore {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .flex-containerOne {
+    display: flex;
+    justify-content: center;
+  }
+
+  .col-container {
+    margin: 10px;
+  }
+
+  .flex-containerCard {
+    display: flex;
+    justify-content: center;
+    margin-top: -85px;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .left-col,
+  .right-col {
+    width: 50%;
+  }
+
+  .left-col {
+    order: 1;
+  }
+
+  .right-col {
+    order: 2;
+  }
+
+  .right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+}
