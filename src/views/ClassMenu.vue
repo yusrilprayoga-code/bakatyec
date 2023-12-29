@@ -218,10 +218,6 @@
           <div v-if="activeName === 'second'">
             <!-- Kelas Subskripsi -->
             <div class="subskripsi">
-              <h3>
-                Kamu belum memiliki kelas subskripsi. <br />
-                <span style="color: #409eff">Cari Kelas Subskripsi</span>
-              </h3>
               <p style="text-align: left">
                 Kelas - kelas yang tersedia dibawah ini dapat Anda akses hingga
                 tanggal
@@ -272,6 +268,18 @@
                   </el-col>
                 </el-row>
               </div>
+              <h2 style="line-height: 2;">
+                Anda Belum Berlangganan. <br />
+                <span style="font-size: 16px; font-weight: 300; line-height: 1;" 
+                  >Untuk mendapatkan akses ke semua kelas, silakan beli paket
+                  berlangganan Anda</span
+                >
+              </h2>
+              <el-button
+                style="font-size: 16px; width: 30%;"
+                class="custom-button-subskripsi"
+                type="info"
+                >Beli Paket Berlangganan</el-button>
             </div>
           </div>
         </el-tab-pane>
@@ -426,15 +434,11 @@ export default {
 
   methods: {
     open() {
-      ElMessageBox.confirm(
-        "Beli Paket Berlangganan?",
-        "Warning",
-        {
-          confirmButtonText: "OK",
-          cancelButtonText: "Cancel",
-          type: "warning",
-        }
-      )
+      ElMessageBox.confirm("Beli Paket Berlangganan?", "Warning", {
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel",
+        type: "warning",
+      })
         .then(() => {
           ElMessage({
             type: "success",
@@ -463,7 +467,13 @@ export default {
           type: "error",
           message: "Kode Voucher Tidak Boleh Kosong",
         });
-      } else if( this.redeemCode === "AEG123" || this.redeemCode === "12FGGA" || this.redeemCode === "NGN232" || this.redeemCode === "OKKFJ4" || this.redeemCode === "PLPO14") {
+      } else if (
+        this.redeemCode === "AEG123" ||
+        this.redeemCode === "12FGGA" ||
+        this.redeemCode === "NGN232" ||
+        this.redeemCode === "OKKFJ4" ||
+        this.redeemCode === "PLPO14"
+      ) {
         ElMessage({
           type: "success",
           message: "Redeem Berhasil",
