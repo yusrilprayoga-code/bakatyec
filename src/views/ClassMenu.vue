@@ -409,7 +409,7 @@ export default {
     },
 
     linkClick() {
-      this.$router.push("/class-detail");
+      this.$router.push("/detail-class");
     },
 
     handleClickRedeem(item) {
