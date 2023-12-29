@@ -1,18 +1,115 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="home" style="margin-top: 50px;">
+      <el-carousel :interval="4000" indicator-position="none" height="500px">
+          <el-carousel-item>
+              <div class="item">
+                  <img class="item_image" src="../assets/1.png" alt="">
+              </div>
+          </el-carousel-item>
+          <el-carousel-item>
+              <div class="item">
+                  <img class="item_image" src="../assets/2.png" alt="">
+              </div>
+          </el-carousel-item>
+          <el-carousel-item >
+              <div class="item">
+                  <img class="item_image" src="../assets/3.png" alt="">
+              </div>
+          </el-carousel-item>
+          <el-carousel-item>
+              <div class="item">
+                  <img class="item_image" src="../assets/4.png" alt="">
+              </div>
+          </el-carousel-item>
+          <el-carousel-item>
+              <div class="item">
+                  <img class="item_image" src="../assets/5.png" alt="">
+              </div>
+          </el-carousel-item>
+      </el-carousel>
+      <h2>Kelas Prakerja 2023 yang Tersedia</h2>
+      <el-row class="flex-container">
+          <el-col
+              class="col-container"
+              v-for="(o, index) in 4" :key="index"
+              :span="24"
+              :md="5"
+              :lg="5"
+              :xl="2">
+              <el-card :body-style="{ padding: '0px' }" class="card-class">
+                  <img 
+                      src="../assets/classImage.jpg" 
+                      class="image"
+                      style="width: 100%;"
+                   />
+                  <div style="padding: 14px;" >
+                      <p class="card-name">Menggunakan Bahasa Inggris Bagi Calon Sekretaris</p>
+                      <div class="bottom">
+                          <p class="price">Rp 1.500.000</p>
+                      </div>
+                      <div class="bottom">
+                          <el-button type="danger button" @click="$router.push('/detail-class')" plain round>Beli Kelas Online</el-button>
+                          <!-- <router-link :to="{ name: 'details' }"></router-link> -->
+                      </div>
+                  </div>
+              </el-card>
+          </el-col>
+      </el-row>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
-});
+export default {
+  name: 'BerandaView',
+}
 </script>
+
+<style scoped>
+  .button {
+      width: 60%;
+      padding: 10px;
+  }
+  p {
+      text-align: justify;
+      text-justify: inter-word;
+  }
+  .footer {
+      height: auto;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      background-color: white;
+  }
+  .flex-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  .price {
+      font-weight: bold;
+      font-size: 16px;
+      color: #35a9be;
+  }
+
+  .bottom {
+      margin-top: 5px;
+      line-height: 12px;
+      display: flex;
+      justify-content: space;
+      align-items: center;
+  }
+
+  .image {
+      width: 100%;
+      display: block;
+  }
+
+  .card-name {
+      font-weight: bold;
+      line-height: normal;
+  }
+  .card-class {
+      background-color: transparent;
+      box-shadow: none;
+      border: non;
+  }
+</style>

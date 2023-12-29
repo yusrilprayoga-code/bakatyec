@@ -109,6 +109,9 @@ const handleSelect = (key: string, keyPath: string[]) => {
   background-color: #eff2f7;
 }
 
+body{
+  margin: 0;
+}
 .el-menu {
   font-size: 14px;
   height: 70px;
