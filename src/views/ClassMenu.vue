@@ -54,10 +54,10 @@
               placeholder="Masukkan Kode Voucher"
               class="custom-input"
             ></el-input>
-            <el-dropdown style="border: none;">
+            <el-dropdown style="border: none">
               <span
                 class="el-dropdown-link"
-                style="color: red; font-size: 14px; margin-bottom: 30px;"
+                style="color: red; font-size: 14px; margin-bottom: 30px"
               >
                 Gunakan Kode Redeem Kartu Prakerja
                 <i class="el-icon-arrow-down el-icon--right"></i>
@@ -69,7 +69,8 @@
                     :key="index"
                     :disabled="item.disabled"
                     @click="handleClickRedeem(item)"
-                  > {{ item.value }}</el-dropdown-item
+                  >
+                    {{ item.value }}</el-dropdown-item
                   >
                 </el-dropdown-menu>
               </template>
@@ -80,6 +81,7 @@
               style="font-size: 16px"
               class="custom-button"
               type="info"
+              @click="Redeemit"
               >Redeem</el-button
             >
             <el-button
@@ -87,6 +89,7 @@
               style="font-size: 16px"
               class="custom-button"
               type="danger"
+              @click="Redeemit"
               >Redeem</el-button
             >
           </div>
@@ -219,6 +222,23 @@
                 Kamu belum memiliki kelas subskripsi. <br />
                 <span style="color: #409eff">Cari Kelas Subskripsi</span>
               </h3>
+              <p style="text-align: left">
+                Kelas - kelas yang tersedia dibawah ini dapat Anda akses hingga
+                tanggal
+                <el-button
+                  style="
+                    margin-top: 20px;
+                    margin-left: 10px;
+                    color: #f05326;
+                    font-weight: bold;
+                    background-color: none;
+                    border: none;
+                  "
+                  text
+                  @click="open"
+                  >Lihat Paket Subskripsi Saya</el-button
+                >
+              </p>
               <div
                 class="custom-card-subkripsi"
                 style="
@@ -264,6 +284,7 @@
 </style>
 <script>
 import { useDisabled } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 export default {
   data() {
     return {
@@ -404,12 +425,55 @@ export default {
   },
 
   methods: {
+    open() {
+      ElMessageBox.confirm(
+        "Beli Paket Berlangganan?",
+        "Warning",
+        {
+          confirmButtonText: "OK",
+          cancelButtonText: "Cancel",
+          type: "warning",
+        }
+      )
+        .then(() => {
+          ElMessage({
+            type: "success",
+            message: "Beli Paket Berlangganan Berhasil",
+          });
+        })
+        .catch(() => {
+          ElMessage({
+            type: "info",
+            message: "Beli Paket Berlangganan Dibatalkan",
+          });
+        });
+    },
+
     handleClick(tab, event) {
       console.log(tab, event);
     },
 
     linkClick() {
       this.$router.push("/class-detail");
+    },
+
+    Redeemit() {
+      if (this.redeemCode === "") {
+        ElMessage({
+          type: "error",
+          message: "Kode Voucher Tidak Boleh Kosong",
+        });
+      } else if( this.redeemCode === "AEG123" || this.redeemCode === "12FGGA" || this.redeemCode === "NGN232" || this.redeemCode === "OKKFJ4" || this.redeemCode === "PLPO14") {
+        ElMessage({
+          type: "success",
+          message: "Redeem Berhasil",
+        });
+      } else {
+        ElMessage({
+          type: "error",
+          message: "Kode Voucher Tidak Valid",
+        });
+      }
     },
 
     handleClickRedeem(item) {
