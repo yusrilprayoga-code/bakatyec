@@ -54,10 +54,10 @@
               placeholder="Masukkan Kode Voucher"
               class="custom-input"
             ></el-input>
-            <el-dropdown style="border: none;">
+            <el-dropdown style="border: none">
               <span
                 class="el-dropdown-link"
-                style="color: red; font-size: 14px; margin-bottom: 30px;"
+                style="color: red; font-size: 14px; margin-bottom: 30px"
               >
                 Gunakan Kode Redeem Kartu Prakerja
                 <i class="el-icon-arrow-down el-icon--right"></i>
@@ -69,7 +69,10 @@
                     :key="index"
                     :disabled="item.disabled"
                     @click="handleClickRedeem(item)"
-                  > {{ item.value }}</el-dropdown-item
+                  >
+                    {{ item.value }}
+
+                    </el-dropdown-item
                   >
                 </el-dropdown-menu>
               </template>
@@ -80,6 +83,7 @@
               style="font-size: 16px"
               class="custom-button"
               type="info"
+              @click="Redeemit"
               >Redeem</el-button
             >
             <el-button
@@ -87,6 +91,7 @@
               style="font-size: 16px"
               class="custom-button"
               type="danger"
+              @click="Redeemit"
               >Redeem</el-button
             >
           </div>
@@ -215,10 +220,23 @@
           <div v-if="activeName === 'second'">
             <!-- Kelas Subskripsi -->
             <div class="subskripsi">
-              <h3>
-                Kamu belum memiliki kelas subskripsi. <br />
-                <span style="color: #409eff">Cari Kelas Subskripsi</span>
-              </h3>
+              <p style="text-align: left">
+                Kelas - kelas yang tersedia dibawah ini dapat Anda akses hingga
+                tanggal
+                <el-button
+                  style="
+                    margin-top: 20px;
+                    margin-left: 10px;
+                    color: #f05326;
+                    font-weight: bold;
+                    background-color: none;
+                    border: none;
+                  "
+                  text
+                  @click="open"
+                  >Lihat Paket Subskripsi Saya</el-button
+                >
+              </p>
               <div
                 class="custom-card-subkripsi"
                 style="
@@ -252,6 +270,18 @@
                   </el-col>
                 </el-row>
               </div>
+              <h2 style="line-height: 2;">
+                Anda Belum Berlangganan. <br />
+                <span style="font-size: 16px; font-weight: 300; line-height: 1;" 
+                  >Untuk mendapatkan akses ke semua kelas, silakan beli paket
+                  berlangganan Anda</span
+                >
+              </h2>
+              <el-button
+                style="font-size: 16px; width: 30%;"
+                class="custom-button-subskripsi"
+                type="info"
+                >Beli Paket Berlangganan</el-button>
             </div>
           </div>
         </el-tab-pane>
@@ -264,6 +294,7 @@
 </style>
 <script>
 import { useDisabled } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 export default {
   data() {
     return {
@@ -312,7 +343,7 @@ export default {
           currentDate: new Date(),
         },
         {
-          name: "Pelayanan Prima Untuk Staf Toko",
+          name: "Testing Pelayanan",
           image: require("../assets/cover1.png"),
           price: "Rp. 1.500.000",
           percentage: 100,
@@ -336,7 +367,7 @@ export default {
           name: "Test QA 2",
           image: require("../assets/cover2.png"),
           price: "Rp. 135.000",
-          percentage: 24,
+          percentage: 10,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -345,16 +376,16 @@ export default {
           name: "Test QA 3",
           image: require("../assets/cover2.png"),
           price: "Rp. 135.000",
-          percentage: 46,
+          percentage: 60,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
         },
         {
-          name: "Pelayanan Prima Untuk Staf Toko",
-          image: require("../assets/cover1.png"),
+          name: "Testing QA 5",
+          image: require("../assets/cover3.png"),
           price: "Rp. 1.500.000",
-          percentage: 100,
+          percentage: 90,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -366,7 +397,7 @@ export default {
           name: "Testing MIA",
           image: require("../assets/cover3.png"),
           price: "Rp. 1.000",
-          percentage: 50,
+          percentage: 0,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -375,7 +406,7 @@ export default {
           name: "Test QA 2",
           image: require("../assets/cover2.png"),
           price: "Rp. 135.000",
-          percentage: 24,
+          percentage: 45,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -384,16 +415,16 @@ export default {
           name: "Test QA 3",
           image: require("../assets/cover2.png"),
           price: "Rp. 135.000",
-          percentage: 46,
+          percentage: 89,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
         },
         {
-          name: "Pelayanan Prima Untuk Staf Toko",
+          name: "Testing Back End 1",
           image: require("../assets/cover1.png"),
           price: "Rp. 1.500.000",
-          percentage: 100,
+          percentage: 99,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -404,12 +435,57 @@ export default {
   },
 
   methods: {
+    open() {
+      ElMessageBox.confirm("Beli Paket Berlangganan?", "Warning", {
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel",
+        type: "warning",
+      })
+        .then(() => {
+          ElMessage({
+            type: "success",
+            message: "Beli Paket Berlangganan Berhasil",
+          });
+        })
+        .catch(() => {
+          ElMessage({
+            type: "info",
+            message: "Beli Paket Berlangganan Dibatalkan",
+          });
+        });
+    },
+
     handleClick(tab, event) {
       console.log(tab, event);
     },
 
     linkClick() {
       this.$router.push("/detail-class");
+    },
+
+    Redeemit() {
+      if (this.redeemCode === "") {
+        ElMessage({
+          type: "error",
+          message: "Kode Voucher Tidak Boleh Kosong",
+        });
+      } else if (
+        this.redeemCode === "AEG123" ||
+        this.redeemCode === "12FGGA" ||
+        this.redeemCode === "NGN232" ||
+        this.redeemCode === "OKKFJ4" ||
+        this.redeemCode === "PLPO14"
+      ) {
+        ElMessage({
+          type: "success",
+          message: "Redeem Berhasil",
+        });
+      } else {
+        ElMessage({
+          type: "error",
+          message: "Kode Voucher Tidak Valid",
+        });
+      }
     },
 
     handleClickRedeem(item) {
@@ -452,7 +528,7 @@ export default {
             currentDate: new Date(),
           },
           {
-            name: "Pelayanan Prima Untuk Staf Toko",
+            name: "Testing Front End 1",
             image: require("../assets/cover1.png"),
             price: "Rp. 1.500.000",
             percentage: 100,
