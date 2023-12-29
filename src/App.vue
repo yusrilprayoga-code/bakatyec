@@ -15,9 +15,9 @@
         <i class="bx bx-home" style="margin-right: 10px"></i>
         Beranda
       </el-menu-item>
-      <el-menu-item index="/about">
+      <el-menu-item index="/class-prakerja">
         <i class="bx bx-building-house" style="margin-right: 10px"></i>
-        About
+        Kelas Prakerja
       </el-menu-item>
       <el-menu-item index="3">
         <i class="bx bx-book" style="margin-right: 10px"></i>

@@ -70,7 +70,9 @@
                     :disabled="item.disabled"
                     @click="handleClickRedeem(item)"
                   >
-                    {{ item.value }}</el-dropdown-item
+                    {{ item.value }}
+
+                    </el-dropdown-item
                   >
                 </el-dropdown-menu>
               </template>
@@ -341,7 +343,7 @@ export default {
           currentDate: new Date(),
         },
         {
-          name: "Pelayanan Prima Untuk Staf Toko",
+          name: "Testing Pelayanan",
           image: require("../assets/cover1.png"),
           price: "Rp. 1.500.000",
           percentage: 100,
@@ -365,7 +367,7 @@ export default {
           name: "Test QA 2",
           image: require("../assets/cover2.png"),
           price: "Rp. 135.000",
-          percentage: 24,
+          percentage: 10,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -374,16 +376,16 @@ export default {
           name: "Test QA 3",
           image: require("../assets/cover2.png"),
           price: "Rp. 135.000",
-          percentage: 46,
+          percentage: 60,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
         },
         {
-          name: "Pelayanan Prima Untuk Staf Toko",
-          image: require("../assets/cover1.png"),
+          name: "Testing QA 5",
+          image: require("../assets/cover3.png"),
           price: "Rp. 1.500.000",
-          percentage: 100,
+          percentage: 90,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -395,7 +397,7 @@ export default {
           name: "Testing MIA",
           image: require("../assets/cover3.png"),
           price: "Rp. 1.000",
-          percentage: 50,
+          percentage: 0,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -404,7 +406,7 @@ export default {
           name: "Test QA 2",
           image: require("../assets/cover2.png"),
           price: "Rp. 135.000",
-          percentage: 24,
+          percentage: 45,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -413,16 +415,16 @@ export default {
           name: "Test QA 3",
           image: require("../assets/cover2.png"),
           price: "Rp. 135.000",
-          percentage: 46,
+          percentage: 89,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
         },
         {
-          name: "Pelayanan Prima Untuk Staf Toko",
+          name: "Testing Back End 1",
           image: require("../assets/cover1.png"),
           price: "Rp. 1.500.000",
-          percentage: 100,
+          percentage: 99,
           status: "success",
           activeName: "first",
           currentDate: new Date(),
@@ -526,7 +528,7 @@ export default {
             currentDate: new Date(),
           },
           {
-            name: "Pelayanan Prima Untuk Staf Toko",
+            name: "Testing Front End 1",
             image: require("../assets/cover1.png"),
             price: "Rp. 1.500.000",
             percentage: 100,
