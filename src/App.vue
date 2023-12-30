@@ -1,7 +1,8 @@
 <template>
   <div id="App">
     <el-menu
-      :default-active="activeIndex"
+      :default-active="activeIndex2"
+      active-text-color=" #f05326"
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
@@ -10,7 +11,7 @@
       <el-menu-item index="0">
         <img style="width: 230px" src="./assets/logo.png" alt="logo" />
       </el-menu-item>
-      <el-menu-item style="width: 33vw"> </el-menu-item>
+      <el-menu-item style="width: 31vw"> </el-menu-item>
       <el-menu-item index="/">
         <i class="bx bx-home" style="margin-right: 10px"></i>
         Beranda
@@ -62,7 +63,7 @@
     <router-view />
     <el-footer
     >
-      <el-row :gutter="20" class="footer-container">
+      <el-row :gutter="30" style="justify-content: center; margin-left: 20px;" class="footer-container">
         <!-- Tentang Kami -->
         <el-col class="tentangkami" :span="24" :md="8">
           <img src="./assets/logo.png" alt="Yec" width="50%" />
@@ -109,6 +110,11 @@
                 <i class="bx bxl-youtube" style="font-size: 30px"></i>
               </a>
             </el-col>
+            <el-col :span="3">
+              <a href="https://t.me/yec_co_id" target="_blank">
+                <i class="bx bxl-telegram" style="font-size: 30px"></i>
+              </a>
+            </el-col>
           </el-row>
           <p style="font-size: 16px">
             Email : prakerja@yec.co.id
@@ -125,7 +131,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { ElNotification, ElDropdown } from "element-plus";
-const activeIndex = ref("1");
+const activeIndex2 = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
@@ -146,14 +152,14 @@ const notification = () => {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   background-color: #eff2f7;
 }
 
 body{
   margin: 0;
 }
-.el-menu {
+
+.el-menu-demo {
   font-size: 14px;
   height: 70px;
   line-height: 60px;
@@ -162,6 +168,11 @@ body{
   z-index: 100;
   margin-bottom: auto;
   position: sticky;
+}
+
+.el-menu-demo .el-menu-item {
+  font-size: 15px;
+  color: #2c3e50;
 }
 
 .el-footer {
