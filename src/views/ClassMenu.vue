@@ -41,6 +41,7 @@
                   background-color: #f05326;
                   color: #fff;
                 "
+                @click="redirect"
                 >Klik Disini<el-icon-arrow-right></el-icon-arrow-right
               ></el-button>
             </div>
@@ -119,11 +120,11 @@
                 :xl="2"
                 @click="linkClick"
               >
-                <el-card :body-style="{ padding: '0px' }" class="card-class">
+                <el-card :body-style="{ padding: '0px' }" class="card-class" style="cursor: pointer;">
                   <img
                     :src="cardsOne.image"
                     class="image"
-                    style="width: 100%"
+                    style="width: 100%;"
                   />
                   <div style="padding: 14px">
                     <span class="cards-name">{{ cardsOne.name }}</span>
@@ -152,11 +153,11 @@
                 :sm="1"
                 @click="linkClick"
               >
-                <el-card :body-style="{ padding: '0px' }" class="card-class">
+                <el-card :body-style="{ padding: '0px' }" class="card-class" style="cursor: pointer;">
                   <img
                     :src="cardsTwo.image"
                     class="image"
-                    style="width: 100%"
+                    style="width: 100%;"
                   />
                   <div style="padding: 14px">
                     <span class="cards-name">{{ cardsTwo.name }}</span>
@@ -185,11 +186,11 @@
                 :sm="1"
                 @click="linkClick"
               >
-                <el-card :body-style="{ padding: '0px' }" class="card-class">
+                <el-card :body-style="{ padding: '0px', }" class="card-class" style="cursor: pointer;">
                   <img
                     :src="cardsThree.image"
                     class="image"
-                    style="width: 100%"
+                    style="width: 100%; "
                   />
                   <div style="padding: 14px">
                     <span class="cards-name">{{ cardsThree.name }}</span>
@@ -264,6 +265,7 @@
                         style="font-size: 16px"
                         class="custom-button-subskripsi"
                         type="info"
+                        @click="openLangganan"
                         >Beli Paket Berlangganan</el-button
                       >
                     </div>
@@ -281,6 +283,7 @@
                 style="font-size: 16px; width: 30%;"
                 class="custom-button-subskripsi"
                 type="info"
+                @click="openLangganan"
                 >Beli Paket Berlangganan</el-button>
             </div>
           </div>
@@ -290,7 +293,7 @@
   </div>
 </template>
 <style scoped>
-@import "../views/ClassMenu.css";
+@import "../css/ClassMenu.css";
 </style>
 <script>
 import { useDisabled } from "element-plus";
@@ -453,6 +456,31 @@ export default {
             message: "Beli Paket Berlangganan Dibatalkan",
           });
         });
+    },
+
+    openLangganan() {
+      ElMessageBox.confirm("Beli Paket Berlangganan?", "Konfirmasi Pembelian", {
+        confirmButtonText: "OK",
+        cancelButtonText: "Cancel",
+        type: "warning",
+      })
+        .then(() => {
+          ElMessage({
+            type: "success",
+            message: "Redirecting to Shop Yec",
+          });
+          window.open("https://shop.yec.co.id/", "_blank");
+        })
+        .catch(() => {
+          ElMessage({
+            type: "info",
+            message: "Beli Paket Berlangganan Dibatalkan",
+          });
+        });
+    },
+
+    redirect() {
+      this.$router.push("/class-prakerja");
     },
 
     handleClick(tab, event) {

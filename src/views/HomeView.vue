@@ -48,7 +48,7 @@
                           <p class="price">Rp 1.500.000</p>
                       </div>
                       <div class="bottom">
-                          <el-button type="danger button" @click="$router.push('/detail-class')" plain round>Beli Kelas Online</el-button>
+                          <el-button type="danger button" @click="open" plain round>Beli Kelas Online</el-button>
                           <!-- <router-link :to="{ name: 'details' }"></router-link> -->
                       </div>
                   </div>
@@ -59,8 +59,32 @@
 </template>
 
 <script lang="ts">
+import { ElMessage, ElMessageBox,  } from 'element-plus'
 export default {
   name: 'BerandaView',
+  methods: {
+    open() {
+      //pilih platform pembelian
+        ElMessageBox.confirm('', 'Pilih Platform Pembelian', {
+            confirmButtonText: 'Tokopedia',
+            confirmButtonClass: 'el-button--success',
+            cancelButtonText: 'Cancel',
+            type: 'warning'
+        }).then(() => {
+            ElMessage({
+            type: 'success',
+            message: 'Redirecting to Tokopedia'
+            })
+            window.open('https://www.tokopedia.com/', '_blank')
+        }).catch(() => {
+            ElMessage({
+            type: 'warning',
+            message: 'Canceled'
+            })
+        })
+    },
+    
+  }
 }
 </script>
 

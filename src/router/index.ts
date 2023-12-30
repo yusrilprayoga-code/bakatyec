@@ -23,6 +23,11 @@ const routes: Array<RouteRecordRaw> = [
     component : () => import(/* webpackChunkName: "about" */ '../views/ClassPrakerja.vue')
   },
   {
+    path: '/privacy',
+    name: 'Privacy',
+    component: () => import('../views/Privacy.vue')
+  },
+  {
     path: '/detail-class',
     name: 'Detail Class',
     component: DetailClass

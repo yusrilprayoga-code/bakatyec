@@ -1,7 +1,7 @@
 import DetailCSS from 
 
 <template>
-    <div class="container" style="text-align: start;" >
+    <div class="container" style="text-align: start; margin-top: 50px;" >
         <el-row>
             <el-col span="1">
                 <el-link href="https://element-plus.org" target="_blank" type="warning" >

@@ -19,7 +19,7 @@
         <i class="bx bx-building-house" style="margin-right: 10px"></i>
         Kelas Prakerja
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="/privacy">
         <i class="bx bx-book" style="margin-right: 10px"></i>
         Privacy
       </el-menu-item>
@@ -101,7 +101,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Nunito, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
