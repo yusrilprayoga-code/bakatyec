@@ -61,7 +61,6 @@
                 style="color: red; font-size: 14px; margin-bottom: 30px"
               >
                 Gunakan Kode Redeem Kartu Prakerja
-                <i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <template #dropdown>
                 <el-dropdown-menu>

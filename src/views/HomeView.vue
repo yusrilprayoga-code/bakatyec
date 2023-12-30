@@ -131,6 +131,7 @@ export default {
   .card-name {
       font-weight: bold;
       line-height: normal;
+    font-size: 18px;
   }
   .card-class {
       background-color: transparent;
