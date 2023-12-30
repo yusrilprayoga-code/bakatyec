@@ -38,7 +38,7 @@
       <div class="content-prakerja" ref="contentPrakerja">
         <el-row>
           <el-col :span="24" :md="12">
-            <el-affix offset="30">
+            <el-affix class="affix" offset="30">
               <el-card>
                 <router-link
                   to="/class-prakerja/#programKartuPrakerja"
@@ -604,5 +604,18 @@ export default {
 .text-prakerja {
   width: 80%;
   text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+
+  .program-prakerja {
+    width: 100%;
+  }
+  .image-prakerja {
+    width: 100%;
+  }
+  .affix {
+    display: none;
+  }
 }
 </style>

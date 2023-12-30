@@ -48,12 +48,13 @@ strong {
   margin-bottom: 40px;
 }
 .custom-input {
-  width: calc(100% - 50px);
+  width: 90%;
   border-radius: 10px;
   height: 50px;
+  margin-bottom: 20px;
 }
 .custom-button {
-  width: calc(100% - 50px);
+  width: 100%;
   border-radius: 10px;
   height: 50px;
   background-color: #f05326;
@@ -84,11 +85,6 @@ strong {
   margin: 50px auto;
 }
 
-.el-input {
-  margin: 50px;
-  width: 90%;
-  margin-bottom: 20px;
-}
 
 .text {
   font-size: 24px;
@@ -160,6 +156,10 @@ strong {
 }
 
 @media (min-width: 768px) {
+  .custom-input {
+    width: 100%;
+  }
+
   .flex-containerOne {
     display: flex;
     justify-content: center;
@@ -198,5 +198,17 @@ strong {
     flex-direction: column;
     align-items: center;
     text-align: left;
+  }
+  .custom-button-subskripsi {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .right-col-subskripsi {
+    margin-top: 20px;
+  }
+
+  .custom-card-subkripsi {
+    padding: 10px;
   }
 }

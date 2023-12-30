@@ -6,7 +6,7 @@
           <div class="text">
             <h3 class="text is-bold">
               Redeem Voucher Kelas yang Sudah Anda Beli
-              <p>Mia (62882007074645)</p>
+              <p style="margin-left: 30px; justify-content: center; align-items: center;">Dengan Akun Mia (62882007074645)</p>
             </h3>
           </div>
           <div class="card-redeem">
