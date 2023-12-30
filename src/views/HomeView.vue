@@ -107,6 +107,7 @@ export default {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      padding: 30px;
   }
   .price {
       font-weight: bold;
@@ -134,6 +135,6 @@ export default {
   .card-class {
       background-color: transparent;
       box-shadow: none;
-      border: non;
+      border: none;
   }
 </style>
