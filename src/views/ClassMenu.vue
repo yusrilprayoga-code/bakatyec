@@ -98,7 +98,7 @@
         </el-col>
       </el-row>
     </el-card>
-    <div class="content">
+    <div class="content" >
       <el-tabs
         tab-position="top"
         v-model="activeName"

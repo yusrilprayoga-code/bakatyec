@@ -1,5 +1,5 @@
 <template>
-  <div class="home" style="margin-top: 50px;">
+  <div class="home">
       <el-carousel :interval="4000" indicator-position="none" height="500px">
           <el-carousel-item>
               <div class="item">
@@ -89,6 +89,24 @@ export default {
 </script>
 
 <style scoped>
+   .el-carousel {
+  width: 100%;
+  height: 100%;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+}
+
+.item_image {
+  width: 100%;
+  height: 100%;
+}
+    
+    .home {
+        margin: 50px 100px 50px 100px;
+    }
   .button {
       width: 60%;
       padding: 10px;
@@ -107,7 +125,6 @@ export default {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      padding: 30px;
   }
   .price {
       font-weight: bold;
@@ -125,7 +142,7 @@ export default {
 
   .image {
       width: 100%;
-      display: block;
+      object-fit: cover;
   }
 
   .card-name {

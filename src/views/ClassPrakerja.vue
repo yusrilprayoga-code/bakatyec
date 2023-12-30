@@ -370,7 +370,17 @@
               pada SKKNI Nomor 27 Tahun 2009.
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang menggunakan Bahasa Inggris bagi seorang calon sekretaris meliputi perkenalan okupasi sekretaris, cakupan tugas, dan pentingnya belajar Bahasa Inggris bagi sekretaris, orang-orang di tempat kerja (people at work), membuat dan menerima panggilan (making and receiving calls), menerima dan memberi pesan (taking and giving messages), menyambut dan menerima tamu (welcoming and receiving visitors), dan membuat surat, memo, dan permohonan (letters, inter-office memos, and requests) mengingat banyaknya perusahaan multinasional yang terdapat di Indonesia serta pentingnya penguasaan Bahasa Inggris sebagai bahasa internasional.
+              Peserta akan mendapatkan pengetahuan tentang menggunakan Bahasa
+              Inggris bagi seorang calon sekretaris meliputi perkenalan okupasi
+              sekretaris, cakupan tugas, dan pentingnya belajar Bahasa Inggris
+              bagi sekretaris, orang-orang di tempat kerja (people at work),
+              membuat dan menerima panggilan (making and receiving calls),
+              menerima dan memberi pesan (taking and giving messages), menyambut
+              dan menerima tamu (welcoming and receiving visitors), dan membuat
+              surat, memo, dan permohonan (letters, inter-office memos, and
+              requests) mengingat banyaknya perusahaan multinasional yang
+              terdapat di Indonesia serta pentingnya penguasaan Bahasa Inggris
+              sebagai bahasa internasional.
             </p>
             <h4>
               2. Menggunakan Bahasa Inggris Bagi Calon Tenaga Perkantoran Umum
@@ -382,13 +392,30 @@
               alt="prakerja"
             />
             <p>
-              Menggunakan Bahasa Inggris Bagi Calon Tenaga Perkantoran Umum adalah kelas yang disusun untuk peserta yang ingin belajar Bahasa Inggris khususnya bagi yang berprofesi sebagai tenaga perkantoran umum. Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 183 Tahun 2016 Administrasi Profesional.
+              Menggunakan Bahasa Inggris Bagi Calon Tenaga Perkantoran Umum
+              adalah kelas yang disusun untuk peserta yang ingin belajar Bahasa
+              Inggris khususnya bagi yang berprofesi sebagai tenaga perkantoran
+              umum. Pelatihan ini menggunakan metode ajar webinar. Kelas ini
+              merujuk pada SKKNI Nomor 183 Tahun 2016 Administrasi Profesional.
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang menggunakan Bahasa Inggris bagi seorang calon tenaga perkantoran umum meliputi perkenalan okupasi tenaga perkantoran umum, cakupan tugas, dan pentingnya belajar Bahasa Inggris bagi calon tenaga perkantoran umum, bertemu kolega/pelanggan (small talks/basic conversation), membuat-menerima panggilan dan memberikan pesan secara lisan (making-receiving calls and taking a message), meminta dan memberikan saran/usul (asking and giving opinions) meminta dan memberikan klarifikasi (asking for clarification and clarifying one's idea), surat dan pengumuman (letters and announcement) mengingat banyaknya perusahaan multinasional yang terdapat di Indonesia serta pentingnya penguasaan Bahasa Inggris sebagai bahasa internasional.
+              Peserta akan mendapatkan pengetahuan tentang menggunakan Bahasa
+              Inggris bagi seorang calon tenaga perkantoran umum meliputi
+              perkenalan okupasi tenaga perkantoran umum, cakupan tugas, dan
+              pentingnya belajar Bahasa Inggris bagi calon tenaga perkantoran
+              umum, bertemu kolega/pelanggan (small talks/basic conversation),
+              membuat-menerima panggilan dan memberikan pesan secara lisan
+              (making-receiving calls and taking a message), meminta dan
+              memberikan saran/usul (asking and giving opinions) meminta dan
+              memberikan klarifikasi (asking for clarification and clarifying
+              one's idea), surat dan pengumuman (letters and announcement)
+              mengingat banyaknya perusahaan multinasional yang terdapat di
+              Indonesia serta pentingnya penguasaan Bahasa Inggris sebagai
+              bahasa internasional.
             </p>
             <h4>
-              3. Melakukan Komunikasi Bahasa Inggris Melalui Panggilan Telepon Bagi Calon Petugas Informasi Pusat Kontak
+              3. Melakukan Komunikasi Bahasa Inggris Melalui Panggilan Telepon
+              Bagi Calon Petugas Informasi Pusat Kontak
             </h4>
             <img
               width="100%"
@@ -397,13 +424,32 @@
               alt="prakerja"
             />
             <p>
-              Melakukan Komunikasi Bahasa Inggris Melalui Panggilan Telepon Bagi Calon Petugas Informasi Pusat Kontak adalah kelas yang disusun khusus untuk peserta yang ingin belajar Bahasa Inggris khususnya bagi yang berprofesi sebagai Petugas Informasi Pusat Kontak. Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 27 Tahun 2009 Tentang Bahasa Inggris Tenaga Administrasi Profesional.
+              Melakukan Komunikasi Bahasa Inggris Melalui Panggilan Telepon Bagi
+              Calon Petugas Informasi Pusat Kontak adalah kelas yang disusun
+              khusus untuk peserta yang ingin belajar Bahasa Inggris khususnya
+              bagi yang berprofesi sebagai Petugas Informasi Pusat Kontak.
+              Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk
+              pada SKKNI Nomor 27 Tahun 2009 Tentang Bahasa Inggris Tenaga
+              Administrasi Profesional.
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang menggunakan Bahasa Inggris bagi seorang calon Petugas Informasi Pusat Kontak meliputi perkenalan okupasi Petugas Informasi Pusat Kontak, cakupan tugas, dan pentingnya belajar Bahasa Inggris bagi Petugas Informasi Pusat Kontak, menggunakan bahasa Inggris untuk melayani pelanggan atau konsumen, menggunakan bahasa Inggris untuk menjawab telepon dalam melayani pelanggan atau konsumen, menginterpretasikan informasi yang diterima dan memiliki kemampuan komunikasi yang efektif, menunjukkan sikap komunikatif dalam berbahasa Inggris, menunjukkan sikap terampil dalam penggunaan peralatan komunikasi mengingat banyaknya perusahaan multinasional yang terdapat di Indonesia serta pentingnya penguasaan Bahasa Inggris sebagai bahasa internasional.
+              Peserta akan mendapatkan pengetahuan tentang menggunakan Bahasa
+              Inggris bagi seorang calon Petugas Informasi Pusat Kontak meliputi
+              perkenalan okupasi Petugas Informasi Pusat Kontak, cakupan tugas,
+              dan pentingnya belajar Bahasa Inggris bagi Petugas Informasi Pusat
+              Kontak, menggunakan bahasa Inggris untuk melayani pelanggan atau
+              konsumen, menggunakan bahasa Inggris untuk menjawab telepon dalam
+              melayani pelanggan atau konsumen, menginterpretasikan informasi
+              yang diterima dan memiliki kemampuan komunikasi yang efektif,
+              menunjukkan sikap komunikatif dalam berbahasa Inggris, menunjukkan
+              sikap terampil dalam penggunaan peralatan komunikasi mengingat
+              banyaknya perusahaan multinasional yang terdapat di Indonesia
+              serta pentingnya penguasaan Bahasa Inggris sebagai bahasa
+              internasional.
             </p>
             <h4>
-              4. Melakukan Riset Kata Kunci Dan Optimasi SEO Website Untuk Menjadi Manajer Pemasaran
+              4. Melakukan Riset Kata Kunci Dan Optimasi SEO Website Untuk
+              Menjadi Manajer Pemasaran
             </h4>
             <img
               width="100%"
@@ -412,10 +458,23 @@
               alt="prakerja"
             />
             <p>
-              Melakukan Riset Kata Kunci dan Optimasi SEO Website Untuk Menjadi Manajer Pemasaran adalah kelas yang dikhususkan untuk peserta yang ingin belajar riset kata kunci dan optimasi SEO website. Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 389 Tahun 2013 Tentang Penetapan Standar Kompetensi Kerja Nasional Indonesia Kategori Jasa Profesional, Ilmiah Dan Teknis, Golongan Pokok Kegiatan Kantor Pusat Dan Konsultasi Manajemen, Golongan Konsultasi Manajemen, Sub Golongan Konsultasi Manajemen Area Kerja Pemasaran.
+              Melakukan Riset Kata Kunci dan Optimasi SEO Website Untuk Menjadi
+              Manajer Pemasaran adalah kelas yang dikhususkan untuk peserta yang
+              ingin belajar riset kata kunci dan optimasi SEO website. Pelatihan
+              ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI
+              Nomor 389 Tahun 2013 Tentang Penetapan Standar Kompetensi Kerja
+              Nasional Indonesia Kategori Jasa Profesional, Ilmiah Dan Teknis,
+              Golongan Pokok Kegiatan Kantor Pusat Dan Konsultasi Manajemen,
+              Golongan Konsultasi Manajemen, Sub Golongan Konsultasi Manajemen
+              Area Kerja Pemasaran.
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang riset kata kunci dan optimasi SEO website untuk menjadi manajer pemasaran, cakupan tugas, okupasi manajer pemasaran dan pentingnya riset kata kunci dan optimasi SEO Website, pengenalan SEO dalam Digital Marketing, membangun website, menulis konten, teknik SEO on page dan offpage, dan audit SEO.
+              Peserta akan mendapatkan pengetahuan tentang riset kata kunci dan
+              optimasi SEO website untuk menjadi manajer pemasaran, cakupan
+              tugas, okupasi manajer pemasaran dan pentingnya riset kata kunci
+              dan optimasi SEO Website, pengenalan SEO dalam Digital Marketing,
+              membangun website, menulis konten, teknik SEO on page dan offpage,
+              dan audit SEO.
             </p>
             <h4>
               5. Menyusun Surat Perjanjian Bahasa Inggris Bagi Calon Staf Legal
@@ -427,13 +486,31 @@
               alt="prakerja"
             />
             <p>
-              Menyusun Surat Perjanjian Bahasa Inggris bagi Calon Staf Legal adalah kelas yang disusun untuk peserta yang ingin belajar Bahasa Inggris khususnya bagi yang berprofesi sebagai Staf Legal. Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 183 Tahun 2016 tentang Tenaga Administrasi Profesional dan SKKNI Nomor 27 Tahun 2009 tentang Bahasa Inggris Tenaga Administrasi Profesional.
+              Menyusun Surat Perjanjian Bahasa Inggris bagi Calon Staf Legal
+              adalah kelas yang disusun untuk peserta yang ingin belajar Bahasa
+              Inggris khususnya bagi yang berprofesi sebagai Staf Legal.
+              Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk
+              pada SKKNI Nomor 183 Tahun 2016 tentang Tenaga Administrasi
+              Profesional dan SKKNI Nomor 27 Tahun 2009 tentang Bahasa Inggris
+              Tenaga Administrasi Profesional.
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang menggunakan Bahasa Inggris bagi calon staf legal meliputi penggunaan kosa kata Bahasa Inggris yang terdapat pada surat perjanjian kerjasama dalam Bahasa Inggris, penggunaan istilah yang terdapat dalam surat perjanjian kerjasama berbahasa Inggris, penggunaan grammar (Simple present, Simple Future, dan Passive Voices) bahasa Inggris sederhana yang terdapat pada surat perjanjian kerjasama berbahasa Inggris, penggunaan kosakata dan grammar bahasa Inggris sederhana untuk menyusun surat perjanjian kerja sama dalam bahasa Inggris, dan penggunaan sikap komunikatif (pemberian saran/masukan/pendapat) mengenai isi surat perjanjian kerjasama dengan menggunakan bahasa Inggris.
+              Peserta akan mendapatkan pengetahuan tentang menggunakan Bahasa
+              Inggris bagi calon staf legal meliputi penggunaan kosa kata Bahasa
+              Inggris yang terdapat pada surat perjanjian kerjasama dalam Bahasa
+              Inggris, penggunaan istilah yang terdapat dalam surat perjanjian
+              kerjasama berbahasa Inggris, penggunaan grammar (Simple present,
+              Simple Future, dan Passive Voices) bahasa Inggris sederhana yang
+              terdapat pada surat perjanjian kerjasama berbahasa Inggris,
+              penggunaan kosakata dan grammar bahasa Inggris sederhana untuk
+              menyusun surat perjanjian kerja sama dalam bahasa Inggris, dan
+              penggunaan sikap komunikatif (pemberian saran/masukan/pendapat)
+              mengenai isi surat perjanjian kerjasama dengan menggunakan bahasa
+              Inggris.
             </p>
             <h4>
-              6. Mengolah Data Penjualan Dengan Microsoft Excel Untuk Menjadi Admin Input Data
+              6. Mengolah Data Penjualan Dengan Microsoft Excel Untuk Menjadi
+              Admin Input Data
             </h4>
             <img
               width="100%"
@@ -442,13 +519,24 @@
               alt="prakerja"
             />
             <p>
-              Mengolah Data Penjualan dengan Microsoft Excel untuk Menjadi Admin Input Data adalah kelas yang disusun khusus untuk peserta yang ingin belajar Data Entry khususnya bagi yang berprofesi sebagai Admin Input Data. Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 56 Tahun 2018.
+              Mengolah Data Penjualan dengan Microsoft Excel untuk Menjadi Admin
+              Input Data adalah kelas yang disusun khusus untuk peserta yang
+              ingin belajar Data Entry khususnya bagi yang berprofesi sebagai
+              Admin Input Data. Pelatihan ini menggunakan metode ajar webinar.
+              Kelas ini merujuk pada SKKNI Nomor 56 Tahun 2018.
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang menggunakan Microsoft Excel untuk Menjadi Admin Input Data meliputi Pengenalan Microsoft Excel dan Formula Dasar Microsoft Excel: Formula Dasar, Formula Dasar Microsoft Excel: Formula Lanjutan, Mengatur dan Merapikan Data Penjualan, Mengolah Data Penjualan Menggunakan Seri Formula IF, Mengolah Data Penjualan Menggunakan Formula Look Up dan Pivot Table.
+              Peserta akan mendapatkan pengetahuan tentang menggunakan Microsoft
+              Excel untuk Menjadi Admin Input Data meliputi Pengenalan Microsoft
+              Excel dan Formula Dasar Microsoft Excel: Formula Dasar, Formula
+              Dasar Microsoft Excel: Formula Lanjutan, Mengatur dan Merapikan
+              Data Penjualan, Mengolah Data Penjualan Menggunakan Seri Formula
+              IF, Mengolah Data Penjualan Menggunakan Formula Look Up dan Pivot
+              Table.
             </p>
             <h4>
-              7. Menyusun Laporan Keuangan Dengan Microsoft Excel Untuk Menjadi Staf Akuntan
+              7. Menyusun Laporan Keuangan Dengan Microsoft Excel Untuk Menjadi
+              Staf Akuntan
             </h4>
             <img
               width="100%"
@@ -457,13 +545,27 @@
               alt="prakerja"
             />
             <p>
-              Menyusun Laporan Keuangan dengan Microsoft Excel untuk Menjadi Staf Akuntan adalah kelas yang disusun untuk peserta yang ingin belajar menyusun laporan keuangan menggunakan microsoft excel khususnya bagi yang berprofesi sebagai Staf Akuntan. Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 182 Tahun 2013.
+              Menyusun Laporan Keuangan dengan Microsoft Excel untuk Menjadi
+              Staf Akuntan adalah kelas yang disusun untuk peserta yang ingin
+              belajar menyusun laporan keuangan menggunakan microsoft excel
+              khususnya bagi yang berprofesi sebagai Staf Akuntan. Pelatihan ini
+              menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI
+              Nomor 182 Tahun 2013.
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang menggunakan microsoft excel untuk menjadi staf akuntan meliputi pengenalan okupasi beserta cakupan tugas staf akuntansi dan pengenalan siklus akuntansi, logika akuntansi dan siklus akuntansi (jurnal umum dan jurnal khusus), siklus akuntansi (berupa neraca saldo, neraca lajur, ayat jurnal penyesuaian dan neraca saldo setelah penyesuaian, membuat sistem akuntansi menggunakan microsoft excel dan menyusun laporan keuangan (memproses data dan menyajikan laporan keuangan).
+              Peserta akan mendapatkan pengetahuan tentang menggunakan microsoft
+              excel untuk menjadi staf akuntan meliputi pengenalan okupasi
+              beserta cakupan tugas staf akuntansi dan pengenalan siklus
+              akuntansi, logika akuntansi dan siklus akuntansi (jurnal umum dan
+              jurnal khusus), siklus akuntansi (berupa neraca saldo, neraca
+              lajur, ayat jurnal penyesuaian dan neraca saldo setelah
+              penyesuaian, membuat sistem akuntansi menggunakan microsoft excel
+              dan menyusun laporan keuangan (memproses data dan menyajikan
+              laporan keuangan).
             </p>
             <h4>
-              8. Mengelola Gaji Karyawan Dengan Microsoft Excel Untuk Menjadi Staf Personalia
+              8. Mengelola Gaji Karyawan Dengan Microsoft Excel Untuk Menjadi
+              Staf Personalia
             </h4>
             <img
               width="100%"
@@ -472,13 +574,22 @@
               alt="prakerja"
             />
             <p>
-              Mengelola Gaji Karyawan dengan Microsoft Excel Untuk Menjadi Staf Personalia adalah kelas yang disusun untuk peserta yang ingin belajar tentang mengelola gaji karyawan khususnya bagi yang berprofesi sebagai Staff Personalia. Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 149 Tahun 2020 Tentang Manajemen Sumber Daya Manusia
+              Mengelola Gaji Karyawan dengan Microsoft Excel Untuk Menjadi Staf
+              Personalia adalah kelas yang disusun untuk peserta yang ingin
+              belajar tentang mengelola gaji karyawan khususnya bagi yang
+              berprofesi sebagai Staff Personalia. Pelatihan ini menggunakan
+              metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 149 Tahun
+              2020 Tentang Manajemen Sumber Daya Manusia
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang Pengenalan Dasar-Dasar Kompensasi dan Benefit, Struktur Jabatan dan Skala Upah Karyawan, Menghitung Komponen Penambah Gaji, Menghitung Komponen Pengurang Gaji, Laporan Gaji Karyawan.
+              Peserta akan mendapatkan pengetahuan tentang Pengenalan
+              Dasar-Dasar Kompensasi dan Benefit, Struktur Jabatan dan Skala
+              Upah Karyawan, Menghitung Komponen Penambah Gaji, Menghitung
+              Komponen Pengurang Gaji, Laporan Gaji Karyawan.
             </p>
             <h4>
-              9. Menyusun Surat Bisnis Dalam Bahasa Inggris Bagi Calon Sekretaris
+              9. Menyusun Surat Bisnis Dalam Bahasa Inggris Bagi Calon
+              Sekretaris
             </h4>
             <img
               width="100%"
@@ -487,10 +598,123 @@
               alt="prakerja"
             />
             <p>
-              Menyusun Surat Bisnis dalam Bahasa Inggris Bagi Calon Sekretaris adalah kelas yang disusun untuk peserta yang ingin belajar tentang menyusun surat bisnis khususnya bagi yang berprofesi sebagai sekretaris. Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI Nomor 27 Tahun 2009 Bahasa Inggris untuk Tenaga Administrasi Profesional
+              Menyusun Surat Bisnis dalam Bahasa Inggris Bagi Calon Sekretaris
+              adalah kelas yang disusun untuk peserta yang ingin belajar tentang
+              menyusun surat bisnis khususnya bagi yang berprofesi sebagai
+              sekretaris. Pelatihan ini menggunakan metode ajar webinar. Kelas
+              ini merujuk pada SKKNI Nomor 27 Tahun 2009 Bahasa Inggris untuk
+              Tenaga Administrasi Profesional
             </p>
             <p>
-              Peserta akan mendapatkan pengetahuan tentang Surat Bisnis dalam Bahasa Inggris dan Penyusunannya, Penyusunan Surat Bisnis “letter of inquiry” dan “letter of order” dalam Bahasa Inggris, Penyusunan surat bisnis “letter of request” dan “letter of reservation” dalam Bahasa Inggris, Penyusunan surat bisnis “letter of confirmation” dan “letter of reminder” dalam Bahasa Inggris, Penyusunan surat bisnis “adjustment/apology” dalam Bahasa Inggris.
+              Peserta akan mendapatkan pengetahuan tentang Surat Bisnis dalam
+              Bahasa Inggris dan Penyusunannya, Penyusunan Surat Bisnis “letter
+              of inquiry” dan “letter of order” dalam Bahasa Inggris, Penyusunan
+              surat bisnis “letter of request” dan “letter of reservation” dalam
+              Bahasa Inggris, Penyusunan surat bisnis “letter of confirmation”
+              dan “letter of reminder” dalam Bahasa Inggris, Penyusunan surat
+              bisnis “adjustment/apology” dalam Bahasa Inggris.
+            </p>
+            <h4>
+              10. Mengembangkan Konten di Media Sosial Untuk Menjadi Spesialis
+              Pemasaran Digital
+            </h4>
+            <img
+              width="100%"
+              style="margin-top: 10px"
+              src="../assets/yec10.png"
+              alt="prakerja"
+            />
+            <p>
+              Mengembangkan Konten di Media Sosial Untuk Menjadi Spesialis
+              Pemasaran Digital adalah kelas yang disusun khusus untuk peserta
+              yang ingin belajar mengembangkan konten di media sosial khususnya
+              bagi yang berprofesi sebagai spesialis pemasaran digital.
+              Pelatihan ini menggunakan metode ajar webinar. Kelas ini merujuk
+              pada SKKNI Nomor 124 Tahun 2022 Tentang Manajemen Bidang
+              Pemasaran.
+            </p>
+            <p>
+              Peserta akan mendapatkan materi tentang Pengenalan Social Media
+              Marketing, Merencanakan Ide Konten, Memproduksi Konten, Memahami
+              Optimasi & Promosi Konten di Berbagai Platform Sosial Media
+              (YouTube,TikTok, Instagram), dan Menganalisis & Membuat Laporan
+              Performa Social Media.
+            </p>
+            <h4>
+              11. Merencanakan Strategi Pemasangan Iklan di Media Sosial Untuk
+              Menjadi Manajer Periklanan
+            </h4>
+            <img
+              width="100%"
+              style="margin-top: 10px"
+              src="../assets/yec11.png"
+              alt="prakerja"
+            />
+            <p>
+              Merencanakan Strategi Pemasangan Iklan di Media Sosial Untuk
+              Menjadi Manajer Periklanan adalah kelas yang disusun khusus untuk
+              peserta yang ingin belajar Profesional Pemasaran khususnya bagi
+              yang berprofesi sebagai Manajer Periklanan. Pelatihan ini
+              menggunakan metode ajar webinar. Kelas ini merujuk pada SKKNI
+              Nomor 389 Tahun 2013.
+            </p>
+            <p>
+              Peserta akan mendapatkan pengetahuan tentang Pengenalan profesi
+              dan iklan di media sosial, Memilih audience dan penempatan iklan,
+              Mendesain kreatif iklan, Strategi kampanye dan laporan iklan,
+              Materi tingkat lanjut Facebook Pixel
+            </p>
+            <h4>
+              12. Mengelola Kinerja Karyawan Untuk Mnejadi Manajer Sumber Daya
+              Manusia
+            </h4>
+            <img
+              width="100%"
+              style="margin-top: 10px"
+              src="../assets/yec12.png"
+              alt="prakerja"
+            />
+            <p>
+              Mengelola Kinerja Karyawan Untuk Menjadi Manajer Sumber Daya
+              Manusia adalah kelas yang disusun untuk peserta yang ingin belajar
+              mengelola kinerja karyawan khususnya bagi yang berprofesi sebagai
+              manajer sumber daya manusia. Pelatihan ini menggunakan metode ajar
+              webinar. Kelas ini merujuk pada SKKNI Nomor 149 Tahun 2020 Tentang
+              Manajemen Sumber Daya Manusia.
+            </p>
+            <p>
+              Peserta akan mendapatkan pengetahuan tentang Memahami dasar-dasar
+              manajemen kinerja karyawan, merancang indikator kinerja karyawan,
+              merancang proses monitoring kinerja karyawan, merancang proses
+              evaluasi kinerja karyawan, menyusun perencanaan peningkatan
+              kinerja karyawan
+            </p>
+            <h4>
+              13. Merumuskan Kebijakan Organisasi Dan Strategi Pengelolaan SDM
+              Untuk Menjadi Manajer Sumber Daya Manusia
+            </h4>
+            <img
+              width="100%"
+              style="margin-top: 10px"
+              src="../assets/yec13.png"
+              alt="prakerja"
+            />
+            <p>
+              Merumuskan Kebijakan Organisasi dan Strategi Pengelolaan SDM Untuk
+              Menjadi Manajer Sumber Daya Manusia adalah kelas yang disusun
+              untuk peserta yang ingin belajar merumuskan kebijakan organisasi
+              dan strategi pengelolaan SDM bagi yang ingin berprofesi sebagai
+              Manajer Sumber Daya Manusia. Pelatihan ini menggunakan metode ajar
+              webinar. Kelas ini merujuk pada SKKNI Nomor 149 Tahun 2020 Tentang
+              Manajemen Sumber Daya Manusia.
+            </p>
+            <p>
+              Peserta akan mendapatkan pengetahuan tentang dasar-dasar manajemen
+              dan perumusan kebijakan SDM di perusahaan, merancang kebijakan SDM
+              bagi karyawan di perusahaan, merancang operasional pengelolaan SDM
+              di perusahaan, merancang desain hubungan industrial yang baik di
+              perusahaan, dan sikap teliti dan cermat dalam merumuskan kebijakan
+              perusahaan.
             </p>
             <h3 class="is-bold" id="programKartuPrakerja">FAQ</h3>
             <div class="demo-collapse" style="margin-bottom: 20px">
@@ -607,7 +831,6 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-
   .program-prakerja {
     width: 100%;
   }

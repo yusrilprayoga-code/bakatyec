@@ -533,7 +533,7 @@ export default {
 .privacy {
   background-color: #fff;
   margin: 50px 10px 20px;
-  padding: 10px 200px;
+  padding: 10px 200px 100px;
   text-align: left;
 }
 
