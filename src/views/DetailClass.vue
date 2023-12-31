@@ -2,7 +2,7 @@ import DetailCSS from
 
 <template>
     <div class="container" style="text-align: start; margin-top: 50px;" >
-        <el-row>
+        <!-- <el-row>
             <el-col span="1">
                 <el-link href="https://element-plus.org" target="_blank" type="warning" >
                     Beranda
@@ -18,7 +18,15 @@ import DetailCSS from
                     Kelas Saya
                 </el-link>
             </el-col>
-        </el-row>
+        </el-row> -->
+        <el-breadcrumb separator="/">
+            <el-breadcrumb-item
+            ><a href="http://localhost:8080/#/class-menu" style="color: #f05326;">Kelas Saya</a></el-breadcrumb-item
+            >
+            <el-breadcrumb-item>
+                <p style="color: #f05326; margin: 0; font-weight: bold;">Detail Kelas</p>
+            </el-breadcrumb-item>
+        </el-breadcrumb>
         <h2>Menggunakan Bahasa Inggris Bagi Calon Sekretaris</h2>
         <el-row justify="space-between">
             <el-col :span="15">
@@ -60,14 +68,24 @@ import DetailCSS from
                             </div>
                         </el-tab-pane>
                         <el-tab-pane label="Ulasan" name="second">
-
+                            <div class="content">
+                                <h2>Ulasan Anda</h2>
+                                <el-rate size="large" v-model="value1" />
+                                <el-input style="margin-top: 20px;"
+                                    v-model="textarea"
+                                    :rows="6"
+                                    type="textarea"
+                                    placeholder="Berikan Ulasan Anda"
+                                />
+                                <el-button style="border-radius: 999; margin-top: 20px; padding: 0px; background-color: #f05326; color: #ffffff;">Submit</el-button>
+                            </div>
                         </el-tab-pane>
                     </el-tabs>
                 </div>    
             <div class="grid-content ep-bg-purple" /></el-col>
             <el-col :span="8">
                 <div class="boxContent">
-                    <p>asdasd</p> 
+                     
                 </div>   
             <div class="grid-content ep-bg-purple" /></el-col>
         </el-row>
@@ -79,11 +97,15 @@ import DetailCSS from
   <script lang="ts" setup>
     import { ref } from 'vue'
     import type { TabsPaneContext } from 'element-plus'
-    
+    const value1 = ref(null)
+    const value2 = ref(null)
+    const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900'])
+
     const activeName = ref('first')
     
     const handleClick = (tab: TabsPaneContext, event: Event) => {
         console.log(tab, event)
     }
+    const textarea = ref('')
   </script>
   
