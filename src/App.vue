@@ -1,7 +1,8 @@
 <template>
   <div id="App">
     <el-menu
-      :default-active="activeIndex"
+      :default-active="activeIndex2"
+      active-text-color=" #f05326"
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
@@ -10,7 +11,7 @@
       <el-menu-item index="0">
         <img style="width: 230px" src="./assets/logo.png" alt="logo" />
       </el-menu-item>
-      <el-menu-item style="width: 43vw"> </el-menu-item>
+      <el-menu-item style="width: 31vw"> </el-menu-item>
       <el-menu-item index="/">
         <i class="bx bx-home" style="margin-right: 10px"></i>
         Beranda
@@ -19,7 +20,7 @@
         <i class="bx bx-building-house" style="margin-right: 10px"></i>
         Kelas Prakerja
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="/privacy">
         <i class="bx bx-book" style="margin-right: 10px"></i>
         Privacy
       </el-menu-item>
@@ -27,11 +28,42 @@
         <i class="bx bx-book-open" style="margin-right: 10px"></i>
         Kelas Saya
       </el-menu-item>
+      <el-menu-item index="#notification" @click="notification">
+        <i class='bx bxs-bell'></i>
+      </el-menu-item>
+      <el-menu-item>
+        <el-dropdown :hide-on-click="false">
+    <span class="el-dropdown-link">
+      <i class='bx bxs-user'></i>
+      MIA
+    </span>
+    <template #dropdown>
+      <el-dropdown-menu>
+        <el-dropdown-item>
+          <i class='bx bx-user'></i>
+          Setting Profile
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <i class='bx bx-building-house' ></i>
+          Bimbingan Prakerja
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <i class='bx bx-book' ></i>
+          Subskripsi
+        </el-dropdown-item>
+        <el-dropdown-item>
+          <i class='bx bx-log-out' ></i>
+          Logout
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
+      </el-menu-item>
     </el-menu>
     <router-view />
     <el-footer
     >
-      <el-row :gutter="20" class="footer-container">
+      <el-row :gutter="30" style="justify-content: center; margin-left: 20px;" class="footer-container">
         <!-- Tentang Kami -->
         <el-col class="tentangkami" :span="24" :md="8">
           <img src="./assets/logo.png" alt="Yec" width="50%" />
@@ -78,6 +110,11 @@
                 <i class="bx bxl-youtube" style="font-size: 30px"></i>
               </a>
             </el-col>
+            <el-col :span="3">
+              <a href="https://t.me/yec_co_id" target="_blank">
+                <i class="bx bxl-telegram" style="font-size: 30px"></i>
+              </a>
+            </el-col>
           </el-row>
           <p style="font-size: 16px">
             Email : prakerja@yec.co.id
@@ -93,26 +130,36 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-const activeIndex = ref("1");
+import { ElNotification, ElDropdown } from "element-plus";
+const activeIndex2 = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
+
+const notification = () => {
+  ElNotification({
+    title: "Notifikasi",
+    message: "Fitur ini masih dalam pengembangan",
+    type: "warning",
+  });
+};
+
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Nunito, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   background-color: #eff2f7;
 }
 
 body{
   margin: 0;
 }
-.el-menu {
+
+.el-menu-demo {
   font-size: 14px;
   height: 70px;
   line-height: 60px;
@@ -121,6 +168,11 @@ body{
   z-index: 100;
   margin-bottom: auto;
   position: sticky;
+}
+
+.el-menu-demo .el-menu-item {
+  font-size: 15px;
+  color: #2c3e50;
 }
 
 .el-footer {
