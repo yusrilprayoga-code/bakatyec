@@ -12,7 +12,7 @@ import DetailCSS from
         </el-breadcrumb>
         <h2>Menggunakan Bahasa Inggris Bagi Calon Sekretaris</h2>
         <el-row justify="space-between">
-            <el-col :span="15">
+            <el-col :span="24" :md={span:15}>
                 <div class="boxContent">
                     <div id="deskripsiKelas">
                         <img src="../assets/classImage.jpg" alt="Class Image" width="100%" height="auto">
@@ -68,7 +68,7 @@ import DetailCSS from
                     </div>
                 </div>    
             <div class="grid-content ep-bg-purple" /></el-col>
-            <el-col :span="8">
+            <el-col :span="24" :md={span:8}>
                 <div class="boxContent">
                      <el-progress class="content" :percentage="progressPercentage" />
                      <el-tabs v-model="activeName2" class="demo-tabs" @tab-click="handleClick">
