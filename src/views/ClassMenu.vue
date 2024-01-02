@@ -84,7 +84,9 @@
               class="custom-button"
               type="info"
               @click="Redeemit"
-              >Redeem</el-button
+              >
+              Redeem 
+              </el-button
             >
             <el-button
               v-else
@@ -92,7 +94,9 @@
               class="custom-button"
               type="danger"
               @click="Redeemit"
-              >Redeem</el-button
+              >
+              Redeem
+              </el-button
             >
           </div>
         </el-col>

@@ -10,3 +10,40 @@ el-link {
     padding: 20px;
     font-size: small;
 }
+
+.noDisplay {
+    display: none;
+}
+
+.display {
+    display: flex;
+}
+
+.activityContent {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.activityContent .detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.activityContent .icon {
+    display: flex;
+    align-items: center;
+}
+
+.activityTitle {
+    margin-left: 20px;
+    color: black;
+}
+
+#buttonActive {
+    background-color: #f05326;
+}
+
+#buttonNotActive {
+    background-color: #ed9076;
+}
