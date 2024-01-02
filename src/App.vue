@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script lang="ts" setup >
+<script lang="ts" setup>
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/Footer.vue";
 
@@ -21,7 +21,7 @@ import Footer from "./components/Footer.vue";
   background-color: #eff2f7;
 }
 
-body{
+body {
   margin: 0;
 }
 
@@ -58,18 +58,18 @@ body{
 .alamat {
   text-align: left;
   flex: 1;
-  max-width: 100%; 
+  max-width: 100%;
 }
 
 .tentangkami {
   text-align: left;
   flex: 1;
-  max-width: 100%; 
+  max-width: 100%;
 }
 
 .customerService {
   text-align: left;
   flex: 1;
-  max-width: 100%; 
+  max-width: 100%;
 }
 </style>
