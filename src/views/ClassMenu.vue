@@ -117,12 +117,14 @@
           <div v-if="activeName === 'first'">
             <!-- Card Class Menu -->
             <card-class-menu />
+            
           </div>
         </el-tab-pane>
         <el-tab-pane label="Kelas Subskripsi" name="second">
           <div v-if="activeName === 'second'">
             <!-- Kelas Subskripsi -->
             <class-subskripsi />
+            
           </div>
         </el-tab-pane>
       </el-tabs>
