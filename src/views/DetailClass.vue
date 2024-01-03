@@ -1,5 +1,3 @@
-import DetailCSS from 
-
 <template>
     <div class="container" style="text-align: start; margin-top: 50px;" >
         <el-breadcrumb separator="/">
@@ -14,6 +12,7 @@ import DetailCSS from
         <el-row justify="space-between">
             <el-col :span="24" :md={span:15}>
                 <div class="boxContent">
+                    <MateriVideo id="component" class="noDisplay" />
                     <div id="deskripsiKelas">
                         <img src="../assets/classImage.jpg" alt="Class Image" width="100%" height="auto">
                         <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
@@ -240,12 +239,16 @@ import DetailCSS from
   <style>
     @import '../css/DetailClass.css';
   </style>
-  <script lang="ts">
+  <script>
+    
+  </script>
+  <script setup lang="ts">
+    
     import { ref } from 'vue'
     import type { TabsPaneContext } from 'element-plus'
-
-    export default {
-    setup() {
+    import MateriVideo from "./DetailClassComponent/MateriVideo.vue"
+    // export default {
+    // setup() {
         const value1 = ref(null)
         const value2 = ref(null)
         const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900'])
@@ -258,22 +261,12 @@ import DetailCSS from
         function openContent() {
             const bodyDeskripsi = document.getElementById('deskripsiKelas')
             const boxDeskripsi = document.getElementsByClassName('boxContent')[0]
-            const iframeToRemove = document.getElementsByTagName("iframe")[0];
-            if (iframeToRemove) {
-                boxDeskripsi.removeChild(iframeToRemove);
-            }
+            const Component = document.getElementById('component');
             bodyDeskripsi?.setAttribute('class', 'boxContent noDisplay')
 
-            const iframeElement = document.createElement('iframe');
-            iframeElement.setAttribute('width', '100%');
-            iframeElement.setAttribute('style', 'height: 30vw');
-            iframeElement.setAttribute('src', 'https://www.youtube-nocookie.com/embed/RunuGmKxwCU?si=s98ejPYSgT4dIe6d');
-            iframeElement.setAttribute('title', 'YouTube video player');
-            iframeElement.setAttribute('frameborder', '0');
-            iframeElement.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-            iframeElement.setAttribute('allowfullscreen', '');
-
-            boxDeskripsi.appendChild(iframeElement);
+            console.log("sebelum di hilangkan " + Component?.getAttribute("class"))
+            Component?.setAttribute("class", "")
+            console.log("setelah di hilangkan " + Component?.getAttribute("class"))
         }
 
         function openActivity(index: number) {
@@ -308,20 +301,20 @@ import DetailCSS from
         console.log(tab, event)
         }
 
-        return {
-        activeName,
-        colors,
-        value1,
-        value2,
-        activeName2,
-        textarea,
-        progressPercentage,
-        openActivity,
-        handleClick,
-        transitionActive
-        }
-    }
-    }
+        // return {
+        // activeName,
+        // colors,
+        // value1,
+        // value2,
+        // activeName2,
+        // textarea,
+        // progressPercentage,
+        // openActivity,
+        // handleClick,
+        // transitionActive
+        // }
+    // }
+    // }
   </script>
 
   
