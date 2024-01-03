@@ -281,7 +281,9 @@ import DetailCSS from
             const jumlahPenggunaClass = document.getElementsByClassName("checkIcon").length;
             if (index == 0) {
                 detail.setAttribute('class', "checkIcon");
-                progressPercentage.value = 100/jumlahPenggunaClass;
+                if(progressPercentage.value < 100/jumlahPenggunaClass ) {
+                    progressPercentage.value = 100/jumlahPenggunaClass;
+                }
                 openContent();
             } else {
                 const isiKelas = document.getElementsByClassName("checkIcon")[index-1].getAttribute("class");
@@ -294,7 +296,9 @@ import DetailCSS from
                         button?.removeAttribute("disabled")
                         button?.setAttribute('id', 'buttonActive')
                     } else {
-                        progressPercentage.value = 100/jumlahPenggunaClass*(index+1);
+                        if(progressPercentage.value < 100/jumlahPenggunaClass*(index+1) ) {
+                            progressPercentage.value = 100/jumlahPenggunaClass*(index+1);
+                        }
                     }
                     openContent();
                 }
