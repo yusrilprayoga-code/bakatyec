@@ -4,7 +4,7 @@ import DetailCSS from
     <div class="container" style="text-align: start; margin-top: 50px;" >
         <el-breadcrumb separator="/">
             <el-breadcrumb-item
-            ><a href="http://localhost:8080/#/class-menu" style="color: #f05326;">Kelas Saya</a></el-breadcrumb-item
+            ><a href="#/class-menu" style="color: #f05326;">Kelas Saya</a></el-breadcrumb-item
             >
             <el-breadcrumb-item>
                 <p style="color: #f05326; margin: 0; font-weight: bold;">Detail Kelas</p>

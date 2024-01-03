@@ -1,5 +1,6 @@
 <template>
-  <div class="class-prakerja">
+  <transition name="el-fade-in-linear">
+    <div class="class-prakerja">
     <div
       class="image-prakerja"
       style="
@@ -779,6 +780,7 @@
       </div>
     </div>
   </div>
+  </transition>
 </template>
 
 <script>
