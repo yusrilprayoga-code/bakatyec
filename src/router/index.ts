@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ClassMenu from '../views/ClassMenu.vue'
 import DetailClass from '../views/DetailClass.vue'
+import LoginVue from '@/views/Login.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -31,6 +32,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/detail-class',
     name: 'Detail Class',
     component: DetailClass
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginVue
   }
 
 ]
