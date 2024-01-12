@@ -21,7 +21,7 @@
           <div class="bottom">
             <span class="cards-price">{{ cardsOne.price }}</span>
             <el-progress
-              :percentage="cardsOne.percentage"
+              :percentage="getProgressByCardId(cardsOne.id)"
               :color="customColor"
             />
           </div>
@@ -48,6 +48,7 @@ export default {
   data() {
     return {
       cardss: [],
+      progressClass: [],
       buttonMore: 0,
       customColor: [
         { color: "#F56C6C", percentage: 20 },
@@ -75,10 +76,9 @@ export default {
     buttonClick() {
       this.buttonMore += 1;
     },
-  },
 
- async mounted() {
-   try {
+    async getCardss() {
+      try {
     const response = await axios.get("http://127.0.0.1:8000/api/classes", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -89,7 +89,32 @@ export default {
    } catch (error) {
      console.log(error);
    }
- }
+    },
+
+    getProgressByCardId(cardId) {
+      const progress = this.progressClass.find((progressOne) => progressOne.id === cardId);
+      return progress ? progress.progress : 0;
+    },
+
+    async getCardsProgressbyUserId() {
+      try{
+        const response = await axios.get("http://127.0.0.1:8000/api/userclasses",{
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        this.progressClass = response.data.data;  
+        console.log(this.progressClass);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+
+ mounted() {
+   this.getCardss();
+    this.getCardsProgressbyUserId();
+ },
 };
 </script>
 

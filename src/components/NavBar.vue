@@ -87,7 +87,7 @@ const notification = () => {
 };
 
 const dynamicWidth = computed(() => {
-  return loginAuth.value ? "31vw" : "37vw";
+  return loginAuth.value ? "30vw" : "35vw";
 });
 
 
