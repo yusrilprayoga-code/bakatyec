@@ -1,4 +1,4 @@
-# yecbakat
+# Bakat By YEC
 
 ## Project setup
 ```
