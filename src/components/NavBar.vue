@@ -34,7 +34,7 @@
       <el-dropdown :hide-on-click="false">
         <span class="el-dropdown-link">
           <i class="bx bxs-user"></i>
-          {{ data.User.name }}
+          {{ data.User }}
         </span>
         <template #dropdown>
           <el-dropdown-menu>
@@ -101,6 +101,9 @@ const logout = () => {
     message: "Anda berhasil logout",
     type: "success",
   });
+  setTimeout(() => {
+    window.location.reload();
+  }, 1000);
 };
 
 
@@ -111,8 +114,7 @@ const fetchUser = async () => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    data.User = response.data;
-    console.log(data.User);
+    data.User = response.data.name;
   } catch (error) {
     console.log(error);
   }

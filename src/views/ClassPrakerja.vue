@@ -1,3 +1,4 @@
+<!-- eslint-disable-next-line -->
 <template>
   <transition name="el-fade-in-linear">
     <div class="class-prakerja">
@@ -36,10 +37,10 @@
           diri terjun ke dunia kerja, maupun membuat usaha.
         </p>
       </div>
-      <div class="content-prakerja" ref="contentPrakerja">
-        <el-row>
-          <el-col :span="24" :md="12">
-            <el-affix class="affix" offset="30">
+      <div class="content-prakerja " ref="contentPrakerja">
+        <el-row >
+          <el-col :span="24" :md="12" class="affix-container">
+            <el-affix class="affix" offset="30" target=".affix-container">
               <el-card>
                 <router-link
                   to="/class-prakerja/#programKartuPrakerja"
@@ -784,6 +785,7 @@
 </template>
 
 <script>
+// eslint-disable-next-line
 export default {
   name: "ClassPrakerja",
 };

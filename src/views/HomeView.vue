@@ -29,35 +29,48 @@
       </el-carousel-item>
     </el-carousel>
     <h2>Kelas Prakerja 2023 yang Tersedia</h2>
-      <el-row class="flex-container">
-          <el-col
-              class="col-container"
-              v-for="kelas in kelass" :key="kelas.id"
-              :span="24"
-              :md="5"
-              :lg="5"
-              :xl="2">
-              <el-card :body-style="{ padding: '0px' }" class="card-class">
-                  <img 
-                      src="../assets/classImage.jpg" 
-                      class="image"
-                      style="width: 100%;"
-                   />
-                  <div style="padding: 14px;" >
-                      <p class="card-name">
-                        {{ kelas.class_name.substring(0, 10)  }}
-                      </p>
-                      <div class="bottom">
-                          <p class="price">Rp 1.500.000</p>
-                      </div>
-                      <div class="bottom">
-                          <el-button type="danger button" @click="open" plain round>Beli Kelas Online</el-button>
-                          <!-- <router-link :to="{ name: 'details' }"></router-link> -->
-                      </div>
-                  </div>
-              </el-card>
-          </el-col>
-      </el-row>
+    <el-row class="flex-container">
+      <el-col
+        class="col-container"
+        v-for="kelas in kelass"
+        :key="kelas.id"
+        :span="24"
+        :md="5"
+        :lg="5"
+        :xl="2"
+      >
+        <el-card :body-style="{ padding: '0px' }" class="card-class">
+          <img
+            src="../assets/classImage.jpg"
+            class="image"
+            style="width: 100%"
+          />
+          <div style="padding: 14px">
+            <el-popover
+              placement="bottom"
+              :title="kelas.class_name"
+              :width="200"
+              trigger="hover"
+            >
+              <template #reference>
+                <p class="card-name">
+                  {{ kelas.class_name.substring(0, 20) + "..." }}
+                </p>
+              </template>
+            </el-popover>
+            <div class="bottom">
+              <p class="price">Rp 1.500.000</p>
+            </div>
+            <div class="bottom">
+              <el-button type="danger button" @click="open" plain round
+                >Beli Kelas Online</el-button
+              >
+              <!-- <router-link :to="{ name: 'details' }"></router-link> -->
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -66,11 +79,11 @@ import { ElMessage, ElMessageBox } from "element-plus";
 import axios from "axios";
 export default {
   name: "BerandaView",
-    data() {
-      return {
-        kelass: [],
-      };
-    },
+  data() {
+    return {
+      kelass: [],
+    };
+  },
 
   methods: {
     open() {
@@ -98,22 +111,17 @@ export default {
 
     async fetchClasses() {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/classes', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        });
-        this.kelass = response.data ? response.data.data : [];
+        const response = await axios.get("http://127.0.0.1:8000/api/classes");
+        this.kelass = response.data.data;
         console.log(this.kelass);
       } catch (error) {
         console.log(error);
       }
     },
-},
+  },
 
-
-  async mounted() {
-    await this.fetchClasses();
+  mounted() {
+    this.fetchClasses();
   },
 };
 </script>
@@ -133,6 +141,7 @@ export default {
   width: 100%;
   height: 100%;
 }
+
 
 .home {
   margin: 50px 100px 50px 100px;

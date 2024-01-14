@@ -151,6 +151,10 @@ strong {
   margin: 0 auto;
 }
 
+.loading {
+  background: none;
+}
+
 .buttonMore {
   display: flex;
   justify-content: center;

@@ -250,11 +250,14 @@
     // export default {
     // setup() {
         const value1 = ref(null)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const value2 = ref(null)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900'])
         const activeName = ref('first')
         const activeName2 = ref('pertama')
         const textarea = ref('')
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const transitionActive = ref(0)
         const progressPercentage = ref(0)
         

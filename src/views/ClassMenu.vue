@@ -13,7 +13,7 @@
                   align-items: center;
                 "
               >
-                Dengan Akun Mia (62882007074645)
+                Dengan Akun {{ name }} (62882007074645)
               </p>
             </h3>
           </div>
@@ -138,10 +138,12 @@
 import { ElMessage} from "element-plus";
 import CardClassMenu from "@/components/CardClassMenu.vue";
 import ClassSubskripsi from '@/components/ClassSubskripsi.vue';
+import axios from 'axios';
 export default {
   components: { CardClassMenu, ClassSubskripsi },
   data() {
     return {
+      name: "",
       redeemCodeinput: [
         { value: "AEG123", disabled: false },
         { value: "12FGGA", disabled: false },
@@ -202,6 +204,24 @@ export default {
         }
       });
     },
+
+    async fetchName() {
+      try{
+        const response = await axios.get("http://127.0.0.1:8000/api/me", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        this.name = response.data.data.name;
+        console.log(this.name);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+
+  mounted() {
+    this.fetchName();
   },
 };
 </script>

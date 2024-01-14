@@ -1,8 +1,12 @@
 <template>
   <el-row class="flex-containerOne">
+    <el-table class="loading" v-if="loading" v-loading="loading">
+          <b-spinner></b-spinner>
+      </el-table>
+    <div v-if="error" class="error">{{ error }}</div>
     <el-col
       class="col-container"
-      v-for="(cardsOne) in cardss"
+      v-for="cardsOne in cardss"
       :key="cardsOne.id"
       :span="24"
       :md="5"
@@ -17,22 +21,20 @@
       >
         <img src="../assets/cover3.png" class="image" style="width: 100%" />
         <div style="padding: 14px">
-          <span class="cards-name">{{ cardsOne.class_name.substring(0,10) }}</span>
+          <span class="cards-name">
+            {{ cardsOne.className.substring(0, 20) + "..." }}
+          </span>
           <div class="bottom">
             <span class="cards-price">{{ cardsOne.price }}</span>
-            <el-progress
-              :percentage="getProgressByCardId(cardsOne.id)"
-              :color="customColor"
-            />
+            <el-progress :color="customColor" />
           </div>
         </div>
       </el-card>
     </el-col>
   </el-row>
 
-
   <div class="buttonMore">
-    <el-button
+    <el-button v-show="buttonShow"
       ref="buttonMore"
       v-model="buttonMore"
       @click="buttonClick"
@@ -43,12 +45,14 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data() {
     return {
       cardss: [],
       progressClass: [],
+      loading: true,
+      error: null,
       buttonMore: 0,
       customColor: [
         { color: "#F56C6C", percentage: 20 },
@@ -65,30 +69,38 @@ export default {
       this.$router.push("/class-prakerja");
     },
 
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
-
     linkClick() {
       this.$router.push("/detail-class");
     },
 
     buttonClick() {
-      this.buttonMore += 1;
+      this.buttonMore += 5;
     },
 
     async getCardss() {
       try {
-    const response = await axios.get("http://127.0.0.1:8000/api/classes", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    }) 
-    this.cardss = response.data.data;
-    console.log(this.cardss);
-   } catch (error) {
-     console.log(error);
-   }
+        const response = await axios.get(
+          "http://127.0.0.1:8000/api/user/classes",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        
+        this.cardss = response.data.user_class.map((userClassItem) => {
+          this.loading = false;
+          return {
+            id: userClassItem.id,
+            progress: userClassItem.progress,
+            className: userClassItem.class.class_name,
+          };
+        });
+
+        console.log(this.cardss);
+      } catch (error) {
+        console.error("Error fetching user classes:", error);
+      }
     },
 
     getProgressByCardId(cardId) {
@@ -98,12 +110,12 @@ export default {
 
     async getCardsProgressbyUserId() {
       try{
-        const response = await axios.get("http://127.0.0.1:8000/api/userclasses",{
+        const response = await axios.get("http://127.0.0.1:8000/api/user/classes",{
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        this.progressClass = response.data.data;  
+        this.progressClass = response.data.data;
         console.log(this.progressClass);
       } catch (error) {
         console.log(error);
@@ -111,10 +123,16 @@ export default {
     },
   },
 
- mounted() {
-   this.getCardss();
+  mounted() {
+    this.getCardss();
     this.getCardsProgressbyUserId();
- },
+  },
+
+  computed: {
+    buttonShow() {
+      return this.buttonMore < this.cardss.length;
+    },
+  },
 };
 </script>
 
