@@ -71,6 +71,7 @@ import { ElNotification, ElDropdown } from "element-plus";
 
 const data = reactive({
   User: [],
+  logout: [],
 });
 
 const activeIndex2 = ref("1");
@@ -93,17 +94,28 @@ const dynamicWidth = computed(() => {
 
 const loginAuth = ref(localStorage.getItem("token") ? true : false);
 
-const logout = () => {
-  localStorage.removeItem("token");
-  loginAuth.value = false;
-  ElNotification({
-    title: "Notifikasi",
-    message: "Anda berhasil logout",
-    type: "success",
-  });
-  setTimeout(() => {
-    window.location.reload();
-  }, 1000);
+const logout = async () => {
+  try{
+    const response = await axios.get("http://127.0.0.1:8000/api/logout", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    data.logout = response.data;
+    console.log(data.logout);
+    localStorage.removeItem("token");
+    loginAuth.value = false;
+    ElNotification({
+      title: "Success",
+      message: "Logout Success",
+      type: "success",
+    });
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 1000);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 
