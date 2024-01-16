@@ -29,6 +29,9 @@
       </el-carousel-item>
     </el-carousel>
     <h2>Kelas Prakerja 2023 yang Tersedia</h2>
+    <el-table v-loading="loading" v-if="loading">
+      <b-spinner></b-spinner>
+    </el-table>
     <el-row class="flex-container">
       <el-col
         class="col-container"
@@ -82,6 +85,7 @@ export default {
   data() {
     return {
       kelass: [],
+      loading: true,
     };
   },
 
@@ -112,6 +116,7 @@ export default {
     async fetchClasses() {
       try {
         const response = await axios.get("http://127.0.0.1:8000/api/classes");
+        this.loading = false;
         this.kelass = response.data.data;
         console.log(this.kelass);
       } catch (error) {
