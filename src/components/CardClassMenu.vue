@@ -22,7 +22,7 @@
         <img src="../assets/cover3.png" class="image" style="width: 100%" />
         <div style="padding: 14px">
           <span class="cards-name">
-            {{ cardsOne.className.substring(0, 20) + "..." }}
+            {{ cardsOne.className.substring(0, 15) + "..." }}
           </span>
           <div class="bottom">
             <span class="cards-price">{{ cardsOne.price }}</span>
@@ -88,8 +88,8 @@ export default {
           }
         );
         
+        this.loading = false;
         this.cardss = response.data.user_class.map((userClassItem) => {
-          this.loading = false;
           return {
             id: userClassItem.id,
             progress: userClassItem.progress,

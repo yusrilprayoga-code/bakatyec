@@ -51,7 +51,7 @@ export default {
             message: "Login Success",
             type: "success",
           });
-          this.$router.go();
+          window.location.href = "/";
         })
         .catch((error) => {
           if (error.response) {
