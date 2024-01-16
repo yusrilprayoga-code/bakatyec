@@ -19,10 +19,12 @@
         class="card-class"
         style="cursor: pointer"
       >
-        <img src="../assets/cover3.png" class="image" style="width: 100%" />
+        <img :src="
+          `http://127.0.0.1:8000/images/` + cardsOne.class_thumbnail 
+        " style="width: 100%" />
         <div style="padding: 14px">
           <span class="cards-name">
-            {{ cardsOne.className.substring(0, 15) + "..." }}
+            {{ cardsOne.className.substring(0, 15) + "..."}}
           </span>
           <div class="bottom">
             <span class="cards-price">{{ cardsOne.price }}</span>
@@ -94,6 +96,7 @@ export default {
             id: userClassItem.id,
             progress: userClassItem.progress,
             className: userClassItem.class.class_name,
+            class_thumbnail: userClassItem.class.class_thumbnail,
           };
         });
 
