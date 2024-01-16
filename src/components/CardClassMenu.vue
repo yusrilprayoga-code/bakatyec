@@ -12,7 +12,7 @@
       :md="5"
       :lg="5"
       :xl="2"
-      @click="linkClick"
+      @click="linkClick(cardsOne.id)"
     >
       <el-card
         :body-style="{ padding: '0px' }"
@@ -69,8 +69,8 @@ export default {
       this.$router.push("/class-prakerja");
     },
 
-    linkClick() {
-      this.$router.push("/detail-class");
+    linkClick(id) {
+      this.$router.push(`/detail-class/${id}`);
     },
 
     buttonClick() {

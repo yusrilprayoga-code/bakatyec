@@ -167,10 +167,6 @@ export default {
       console.log(tab, event);
     },
 
-    linkClick() {
-      this.$router.push("/detail-class");
-    },
-
     Redeemit() {
       if (this.redeemCode === "") {
         ElMessage({

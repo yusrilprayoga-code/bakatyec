@@ -29,9 +29,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Privacy.vue')
   },
   {
-    path: '/detail-class',
+    path: '/detail-class/:id',
     name: 'Detail Class',
     component: DetailClass
+    
   },
   {
     path: '/login',
