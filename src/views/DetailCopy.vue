@@ -7,7 +7,9 @@
             </el-breadcrumb-item>
         </el-breadcrumb>
         <!-- <h2>Menggunakan Bahasa Inggris Bagi Calon Sekretaris</h2> -->
-        <h2>{{ className }}</h2>
+        <h2>
+            {{ kelas.class_name }}
+        </h2>
         <DetailContent />
     </div>
 </template>
@@ -20,17 +22,21 @@ import axios from "axios";
 import DetailContent from "../components/DetailContent.vue";
 
 export default {
-    // props: ['id'],
     data() {
         return {
             id: this.$route.params.id,
-            kelas: null,
+            kelas: {},
         }
     },
-    async mounted() {
-        try {
+     mounted() {
+      this.fetchClasses();  
+    },
+
+    methods: {
+        async fetchClasses() {
+            try {
             const response = await axios.get(
-          `http://127.0.0.1:8000/api/user/classes/` + this.id,
+          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -38,15 +44,12 @@ export default {
           }
         );
         // this.loading = false;
-        this.kelas = response.data.map((kelas_item) => {
-          return {
-            user_id: kelas_item.class.user_id,
-            className: kelas_item.class.class_name,
-          };
-        });
+        this.kelas = response.data.class;
+        console.log(this.kelas);
         } catch (error) {
             console.error("Error fetching user classes:", error);
         }
+        },
     },
     components: {
         DetailContent,

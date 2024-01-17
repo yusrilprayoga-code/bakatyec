@@ -1,7 +1,7 @@
 <template>
     <div class="boxContent">
         <el-progress class="content" :percentage="0" />
-        <el-tabs v-model="activeName2" class="demo-tabs" @tab-click="handleClick">
+        <el-tabs style="padding: 30px;" v-model="activeName2" class="demo-tabs" @tab-click="handleClick">
         <el-tab-pane label="Aktivitas" name="pertama">
             <el-scrollbar height="200px">
                 <div class="demo-collapse">
@@ -170,8 +170,8 @@
 </style>
 
 <script setup lang="ts">
+import axios from 'axios';
 import { ref, onMounted } from 'vue';
-import type { TabsPaneContext } from 'element-plus';
 
 const activeName2 = ref('pertama');
 const countOpenActivity = ref(2); // jumlah activity yang telah dibuka

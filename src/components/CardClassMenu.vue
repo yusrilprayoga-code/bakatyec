@@ -93,7 +93,7 @@ export default {
         this.loading = false;
         this.cardss = response.data.user_class.map((userClassItem) => {
           return {
-            id: userClassItem.id,
+            id: userClassItem.class_id,
             progress: userClassItem.progress,
             className: userClassItem.class.class_name,
             class_thumbnail: userClassItem.class.class_thumbnail,
@@ -118,7 +118,7 @@ export default {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
-        this.progressClass = response.data.data;
+        this.progressClass = response.data;
         console.log(this.progressClass);
       } catch (error) {
         console.log(error);
