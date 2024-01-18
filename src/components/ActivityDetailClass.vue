@@ -37,52 +37,58 @@
                       </svg>
                     </div>
                     <div>
-                      <div style="display: flex; flex-direction: row">
-                        <h4 style="width: 20px; margin: 0">1.</h4>
-                        <h4 style="margin: 0">Materi 1</h4>
-                      </div>
-                      <div class="detail">
-                        <div class="icon">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 1024 1024"
-                            width="15"
-                            height="15"
-                          >
-                            <path
-                              fill="#909399"
-                              d="M160 160v704h704V160zm-32-64h768a32 32 0 0 1 32 32v768a32 32 0 0 1-32 32H128a32 32 0 0 1-32-32V128a32 32 0 0 1 32-32"
-                            ></path>
-                            <path
-                              fill="#909399"
-                              d="M320 288V128h64v352h256V128h64v160h160v64H704v128h160v64H704v128h160v64H704v160h-64V544H384v352h-64V736H128v-64h192V544H128v-64h192V352H128v-64z"
-                            ></path>
-                          </svg>
-                          <p style="margin: 0 5px; color: #909399">
-                            Menonton video
-                          </p>
-                        </div>
-                        <div class="icon">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 1024 1024"
-                            width="15"
-                            height="15"
-                          >
-                            <path
-                              fill="#909399"
-                              d="M512 896a320 320 0 1 0 0-640 320 320 0 0 0 0 640m0 64a384 384 0 1 1 0-768 384 384 0 0 1 0 768"
-                            ></path>
-                            <path
-                              fill="#909399"
-                              d="M512 320a32 32 0 0 1 32 32l-.512 224a32 32 0 1 1-64 0L480 352a32 32 0 0 1 32-32"
-                            ></path>
-                            <path
-                              fill="#909399"
-                              d="M448 576a64 64 0 1 0 128 0 64 64 0 1 0-128 0m96-448v128h-64V128h-96a32 32 0 0 1 0-64h256a32 32 0 1 1 0 64z"
-                            ></path>
-                          </svg>
-                          <p style="margin: 0 5px; color: #909399">00:02:02</p>
+                      <div
+                        style="display: flex; flex-direction: column"
+                        v-for="subActivityItem in activityDetail.activityDetails"
+                        :key="subActivityItem.subActivityId"
+                      >
+                        <h4 style="margin: 0">
+                            {{ subActivityItem.subActivityNumber }}. {{ subActivityItem.subActivityName }}
+                        </h4>
+                        <div class="detail">
+                          <div class="icon">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 1024 1024"
+                              width="15"
+                              height="15"
+                            >
+                              <path
+                                fill="#909399"
+                                d="M160 160v704h704V160zm-32-64h768a32 32 0 0 1 32 32v768a32 32 0 0 1-32 32H128a32 32 0 0 1-32-32V128a32 32 0 0 1 32-32"
+                              ></path>
+                              <path
+                                fill="#909399"
+                                d="M320 288V128h64v352h256V128h64v160h160v64H704v128h160v64H704v128h160v64H704v160h-64V544H384v352h-64V736H128v-64h192V544H128v-64h192V352H128v-64z"
+                              ></path>
+                            </svg>
+                            <p style="margin: 0 5px; color: #909399" 
+                            >
+                              {{ "Menonton Video"}}
+                            </p>
+                          </div>
+                          <div class="icon">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 1024 1024"
+                              width="15"
+                              height="15"
+                            >
+                              <path
+                                fill="#909399"
+                                d="M512 896a320 320 0 1 0 0-640 320 320 0 0 0 0 640m0 64a384 384 0 1 1 0-768 384 384 0 0 1 0 768"
+                              ></path>
+                              <path
+                                fill="#909399"
+                                d="M512 320a32 32 0 0 1 32 32l-.512 224a32 32 0 1 1-64 0L480 352a32 32 0 0 1 32-32"
+                              ></path>
+                              <path
+                                fill="#909399"
+                                d="M448 576a64 64 0 1 0 128 0 64 64 0 1 0-128 0m96-448v128h-64V128h-96a32 32 0 0 1 0-64h256a32 32 0 1 1 0 64z"
+                              ></path>
+                            </svg>
+                            <p style="margin: 0 5px; color: #909399">00:02:02</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -131,11 +137,13 @@ export default {
       checkIcons: [],
       id: this.$route.params.id,
       activity: {},
+      //   subActivity: [],
     };
   },
 
   methods: {
     openActivity(index) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const jumlahPenggunaClass = this.checkIcons.length;
       if (index === 0) {
         //detail.setAttribute('class', "checkIcon");
@@ -169,16 +177,16 @@ export default {
             return {
               id: classActivityItem.id,
               categoryName: classActivityItem.activity_name,
-              //   activityDetail: classActivityItem.activity_detail.map(
-              //     (activityDetailItem) => {
-              //       return {
-              //         id: activityDetailItem.id,
-              //         activityName: activityDetailItem.activity_name,
-              //         activityType: activityDetailItem.activity_type,
-              //         activityDuration: activityDetailItem.activity_duration,
-              //       };
-              //     }
-              //   ),
+              activityDetails: classActivityItem.sub_activity.map(
+                (subActivityItem) => {
+                  return {
+                    subActivityId: subActivityItem.activity_id,
+                    subActivityName: subActivityItem.sub_activity_name,
+                    subActivityNumber: subActivityItem.sub_activity_number,
+                    subActivityContent: subActivityItem.content,
+                  };
+                }
+              ),
             };
           }
         );
@@ -187,18 +195,53 @@ export default {
         console.error("Error fetching user classes:", error);
       }
     },
+
+    
+    // async getSubActivity() {
+    //   try {
+    //     const response = await axios.get(
+    //       `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+    //       {
+    //         headers: {
+    //           Authorization: `Bearer ${localStorage.getItem("token")}`,
+    //         },
+    //       }
+    //     );
+    //     this.subActivity = [];
+
+    //     response.data.class.class_activity.forEach((classActivityItem) => {
+    //       classActivityItem.sub_activity.forEach((subActivityItem) => {
+    //         this.subActivity.push({
+    //           subActivityId: subActivityItem.activity_id,
+    //           subActivityName: subActivityItem.sub_activity_name,
+    //           subActivityNumber: subActivityItem.sub_activity_number,
+    //           subActivityContent: subActivityItem.content,
+    //         });
+    //       });
+    //     });
+
+    //     console.log(this.subActivity);
+    //   } catch (error) {
+    //     console.error("Error fetching user classes:", error);
+    //   }
+    // },
   },
 
   mounted() {
-  this.getClassActivity();
-  this.checkIcons = document.getElementsByClassName("checkIcon");
+    this.getClassActivity();
+    // this.getSubActivity();
+    this.checkIcons = document.getElementsByClassName("checkIcon");
 
-  for (let index = 0; index < this.countOpenActivity && index < this.checkIcons.length; index++) {
-    if (this.checkIcons[index]) {
-      this.checkIcons[index].setAttribute("class", "checkIcon");
+    for (
+      let index = 0;
+      index < this.countOpenActivity && index < this.checkIcons.length;
+      index++
+    ) {
+      if (this.checkIcons[index]) {
+        this.checkIcons[index].setAttribute("class", "checkIcon");
+      }
     }
-  }
-},
+  },
 };
 
 // import { ref, onMounted } from 'vue';

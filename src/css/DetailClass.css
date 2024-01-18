@@ -28,6 +28,7 @@ el-link {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .activityContent .icon {

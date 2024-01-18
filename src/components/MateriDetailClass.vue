@@ -18,7 +18,9 @@
             {{ kelas.class_desc }}
           </p>
           <h3>Bidang Studi</h3>
-          <p>Kelas Prakerja 2023 yang Tersedia</p>
+          <p>
+            {{ category.category_name }}
+          </p>
           <h3>Lembaga Pengajaran</h3>
           <el-row>
             <el-col :span="8" style="padding: 40px">
@@ -39,8 +41,11 @@
           </el-row>
           <h3>Lembaga Pengajaran</h3>
           <el-row>
-            <el-col :span="8" v-for="fasilDetail in fasilDetailvalue"
-              :key="fasilDetail.fasilId">
+            <el-col
+              :span="8"
+              v-for="fasilDetail in fasilDetailvalue"
+              :key="fasilDetail.fasilId"
+            >
               <img
                 :src="fasilDetail.fasilPhoto"
                 alt="Fasilitator 1"
@@ -77,7 +82,7 @@
               margin-top: 20px;
               padding: 0px;
               background-color: #f05326;
-              color: #ffffff; 
+              color: #ffffff;
             "
             @click="submit"
             >Submit</el-button
@@ -116,12 +121,14 @@ export default {
       kelas: {},
       fasil: {},
       fasilDetailvalue: [],
+      category: [],
     };
   },
   mounted() {
     this.getDataClassDetail();
     this.getFasilDetail();
     this.getfasildetails();
+    this.getDataCategory();
   },
 
   methods: {
@@ -138,6 +145,24 @@ export default {
         // this.loading = false;
         this.kelas = response.data.class;
         console.log(this.kelas);
+      } catch (error) {
+        console.error("Error fetching user classes:", error);
+      }
+    },
+
+    async getDataCategory() {
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        this.category = response.data.class.category
+        console.log(this.category);
       } catch (error) {
         console.error("Error fetching user classes:", error);
       }
@@ -182,8 +207,6 @@ export default {
       );
       console.log(this.fasilDetailvalue);
     },
-
-    
   },
 };
 </script>
