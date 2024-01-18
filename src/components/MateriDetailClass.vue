@@ -69,6 +69,7 @@
             :rows="6"
             type="textarea"
             placeholder="Berikan Ulasan Anda"
+            @change="textareaChange"
           />
           <el-button
             style="
@@ -76,8 +77,9 @@
               margin-top: 20px;
               padding: 0px;
               background-color: #f05326;
-              color: #ffffff;
+              color: #ffffff; 
             "
+            @click="submit"
             >Submit</el-button
           >
         </div>
@@ -180,6 +182,8 @@ export default {
       );
       console.log(this.fasilDetailvalue);
     },
+
+    
   },
 };
 </script>

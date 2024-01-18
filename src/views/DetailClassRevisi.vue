@@ -13,8 +13,8 @@
     <h2>{{ kelas.class_name }}</h2>
     <el-row justify="space-between">
       <el-col :span="24" :md="{ span: 15 }">
-        <MateriSubActivity style="display: none" />
-        <MateriDetailClass />
+        <MateriSubActivity style="display: none;" />
+        <MateriDetailClass  />
       </el-col>
       <el-col :span="24" :md="{ span: 8 }">
         <ActivityDetailClass />
@@ -33,6 +33,7 @@ import MateriSubActivity from "../components/MateriSubActivity.vue";
 import axios from 'axios';
 
 export default {
+  
   data() {
     return {
         id: this.$route.params.id,
@@ -44,6 +45,7 @@ export default {
     ActivityDetailClass,
     MateriSubActivity,
   },
+
   methods: {
     async getDataClassDetail() {
       try {

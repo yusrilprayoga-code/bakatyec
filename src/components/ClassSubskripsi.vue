@@ -115,13 +115,6 @@ export default {
       this.$router.push("/class-prakerja");
     },
 
-    handleClick(tab, event) {
-      console.log(tab, event);
-    },
-
-    linkClick() {
-      this.$router.push("/detail-class");
-    },
     }
 }
 </script>
