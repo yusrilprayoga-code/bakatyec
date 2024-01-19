@@ -246,7 +246,7 @@
     
     import { ref } from 'vue'
     import type { TabsPaneContext } from 'element-plus'
-    import MateriVideo from "./DetailClassComponent/MateriVideo.vue"
+    import MateriVideo from "../components/MateriVideo.vue"
     // export default {
     // setup() {
         const value1 = ref(null)
