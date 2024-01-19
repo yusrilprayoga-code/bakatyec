@@ -164,9 +164,13 @@ export default {
     },
 
     openSubActivity(index) {
-      this.selectedSubActivity = index;
-    },
-
+    this.countOpenActivity = index + 1; 
+    this.selectedActivityIndex = index; 
+    if (this.$refs.materiSubActivity) {
+      this.$refs.materiSubActivity.setSelectedActivityIndex(this.selectedActivityIndex);
+    }
+  },
+  
     async getClassActivity() {
       try {
         const response = await axios.get(

@@ -13,11 +13,11 @@
     <h2>{{ kelas.class_name }}</h2>
     <el-row justify="space-between">
       <el-col :span="24" :md="{ span: 15 }">
-        <MateriSubActivity style="display: none;" />
-        <MateriDetailClass  />
+        <MateriSubActivity v-model="setSelectedActivityIndex"/>
+        <MateriDetailClass v-model="setSelectedActivityIndex" />
       </el-col>
       <el-col :span="24" :md="{ span: 8 }">
-        <ActivityDetailClass />
+        <ActivityDetailClass  />
       </el-col>
     </el-row>
   </div>
@@ -48,6 +48,10 @@ export default {
   },
 
   methods: {
+
+    setSelectedActivityIndex(index) {
+    this.selectedActivityIndex = index;
+  },
     async getDataClassDetail() {
       try {
             const response = await axios.get(
