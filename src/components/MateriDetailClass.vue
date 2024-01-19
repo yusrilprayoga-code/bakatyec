@@ -43,11 +43,11 @@
           <el-row>
             <el-col
               :span="8"
-              v-for="fasilDetail in fasilDetailvalue"
-              :key="fasilDetail.fasilId"
+              v-for="fasilDetail in fasils"
+              :key="fasilDetail.id"
             >
               <img
-                :src="fasilDetail.fasilPhoto"
+                :src="fasilDetail.fasil.fasil_photo"
                 alt="Fasilitator 1"
                 width="70%"
                 style="border-radius: 50%"
@@ -56,10 +56,10 @@
           </el-row>
           <el-row>
             <el-col
-              v-for="fasilDetail in fasilDetailvalue"
-              :key="fasilDetail.fasilId"
+              v-for="fasilDetail in fasils"
+              :key="fasilDetail.fasil.id"
             >
-              <p>{{ fasilDetail.fasilDesc }}</p>
+              <p>{{ fasilDetail.fasil.fasil_desc }}</p>
             </el-col>
           </el-row>
         </div>
@@ -118,16 +118,15 @@ export default {
       id: this.$route.params.id,
       user_kelas: {},
       kelas: {},
-      fasil: {},
-      fasilDetailvalue: [],
+      fasils: {},
       category: [],
     };
   },
   mounted() {
-    this.getDataClassDetail();
-    this.getFasilDetail();
-    this.getfasildetails();
-    this.getDataCategory();
+    // this.getDataClassDetail();
+    // this.getFasilDetail();
+    // this.getfasildetails();
+    // this.getDataCategory();
     this.getUserClass();
   },
 
@@ -159,87 +158,91 @@ export default {
         );
         // this.loading = false;
         this.user_kelas = response.data;
+        this.kelas = response.data.class;
+        this.fasils = response.data.class.class_fasil; 
+        this.category = response.data.class.category;
         console.log(this.user_kelas);
       } catch (error) {
         console.error("Error fetching user classes:", error);
       }
     },
 
-    async getDataClassDetail() {
-      try {
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
-        // this.loading = false;
-        this.kelas = response.data.class;
-        console.log(this.kelas);
-      } catch (error) {
-        console.error("Error fetching user classes:", error);
-      }
-    },
+  //   async getDataClassDetail() {
+  //     try {
+  //       const response = await axios.get(
+  //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //           },
+  //         }
+  //       );
+  //       // this.loading = false;
+  //       this.kelas = response.data.class;
+  //       console.log(this.kelas);
+  //     } catch (error) {
+  //       console.error("Error fetching user classes:", error);
+  //     }
+  //   },
 
-    async getDataCategory() {
-      try {
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+  //   async getDataCategory() {
+  //     try {
+  //       const response = await axios.get(
+  //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //           },
+  //         }
+  //       );
 
-        this.category = response.data.class.category;
-        console.log(this.category);
-      } catch (error) {
-        console.error("Error fetching user classes:", error);
-      }
-    },
+  //       this.category = response.data.class.category;
+  //       console.log(this.category);
+  //     } catch (error) {
+  //       console.error("Error fetching user classes:", error);
+  //     }
+  //   },
 
-    async getFasilDetail() {
-      try {
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+  //   async getFasilDetail() {
+  //     try {
+  //       const response = await axios.get(
+  //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //           },
+  //         }
+  //       );
 
-        this.fasil = response.data.class.class_fasil;
-        console.log(this.fasil);
-      } catch (error) {
-        console.error("Error fetching user classes:", error);
-      }
-    },
+  //       this.fasil = response.data.class.class_fasil;
+  //       console.log(this.fasil);
+  //     } catch (error) {
+  //       console.error("Error fetching user classes:", error);
+  //     }
+  //   },
 
-    async getfasildetails() {
-      const response = await axios.get(
-        `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
-      this.fasilDetailvalue = response.data.class.class_fasil.map(
-        (fasilDetail) => {
-          return {
-            fasilId: fasilDetail.id,
-            fasilName: fasilDetail.fasil.fasil_name,
-            fasilDesc: fasilDetail.fasil.fasil_desc,
-            fasilPhoto: fasilDetail.fasil.fasil_photo,
-          };
-        }
-      );
-      console.log(this.fasilDetailvalue);
-    },
+  //   async getfasildetails() {
+  //     const response = await axios.get(
+  //       `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //         },
+  //       }
+  //     );
+  //     this.fasilDetailvalue = response.data.class.class_fasil;
+  //     // .map(
+  //     //   (fasilDetail) => {
+  //     //     return {
+  //     //       fasilId: fasilDetail.id,
+  //     //       fasilName: fasilDetail.fasil.fasil_name,
+  //     //       fasilDesc: fasilDetail.fasil.fasil_desc,
+  //     //       fasilPhoto: fasilDetail.fasil.fasil_photo,
+  //     //     };
+  //     //   }
+  //     // );
+  //     console.log(this.fasilDetailvalue);
+  //   },
   },
 };
 </script>

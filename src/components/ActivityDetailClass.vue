@@ -65,7 +65,7 @@
                             </svg>
                             <p style="margin: 0 5px; color: #909399" 
                             >
-                              {{ "Menonton Video"}}
+                              {{ subActivityItem.subActvityType }}
                             </p>
                           </div>
                           <div class="icon">
@@ -194,6 +194,7 @@ export default {
                     subActivityName: subActivityItem.sub_activity_name,
                     subActivityNumber: subActivityItem.sub_activity_number,
                     subActivityContent: subActivityItem.content,
+                    subActvityType:subActivityItem.type.type_name
                   };
                 }
               ),
