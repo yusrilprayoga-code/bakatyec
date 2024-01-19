@@ -67,10 +67,10 @@
       <el-tab-pane label="Ulasan" name="second">
         <div class="content">
           <h2>Ulasan Anda</h2>
-          <el-rate size="large" v-model="newRate" />
+          <el-rate size="large" v-model="user_kelas.rate" />
           <el-input
             style="margin-top: 20px"
-            v-model="newComment"
+            v-model="user_kelas.ulasan"
             :rows="6"
             type="textarea"
             placeholder="Berikan Ulasan Anda"
@@ -83,7 +83,7 @@
               background-color: #f05326;
               color: #ffffff;
             "
-            @click="addComment"
+            @click="addUlasan"
             >Submit</el-button
           >
           <hr />
@@ -115,8 +115,8 @@ export default {
   data() {
     return {
       activeName: "first",
-      value1: null,
       id: this.$route.params.id,
+      user_kelas: {},
       kelas: {},
       fasil: {},
       fasilDetailvalue: [],
@@ -128,9 +128,43 @@ export default {
     this.getFasilDetail();
     this.getfasildetails();
     this.getDataCategory();
+    this.getUserClass();
   },
 
   methods: {
+    addUlasan() { 
+      axios.patch(
+          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+          {
+            rate: this.user_kelas.rate,
+            ulasan: this.user_kelas.ulasan
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          },
+        );
+    },
+
+    async getUserClass() {
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        // this.loading = false;
+        this.user_kelas = response.data;
+        console.log(this.user_kelas);
+      } catch (error) {
+        console.error("Error fetching user classes:", error);
+      }
+    },
+
     async getDataClassDetail() {
       try {
         const response = await axios.get(
