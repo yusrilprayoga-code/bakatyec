@@ -39,12 +39,12 @@
                     <div>
                       <div
                         style="display: flex; flex-direction: column; cursor: pointer;"
-                        v-for="subActivityItem in activityDetail.activityDetails"
+                        v-for="(subActivityItem, index) in activityDetail.activityDetails"
                         :key="subActivityItem.subActivityId"
                         @click="openSubActivity(subActivityItem.subActivityId)"
                       >
                         <h4 style="margin: 0">
-                            {{ subActivityItem.subActivityNumber }}. {{ subActivityItem.subActivityName }}
+                            {{ index+1 }}. {{ subActivityItem.subActivityName }}
                         </h4>
                         <div class="detail">
                           <div class="icon">
@@ -190,7 +190,7 @@ export default {
               activityDetails: classActivityItem.sub_activity.map(
                 (subActivityItem) => {
                   return {
-                    subActivityId: subActivityItem.activity_id,
+                    subActivityId: subActivityItem.id,
                     subActivityName: subActivityItem.sub_activity_name,
                     subActivityNumber: subActivityItem.sub_activity_number,
                     subActivityContent: subActivityItem.content,
