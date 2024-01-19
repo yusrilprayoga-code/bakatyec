@@ -38,6 +38,7 @@ export default {
     return {
         id: this.$route.params.id,
         kelas: {},
+        activity: {},
     };
   },
   components: {
@@ -64,10 +65,47 @@ export default {
             console.error("Error fetching user classes:", error);
         }
     },
+
+    async getClassActivity() {
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        this.activity = response.data.class.class_activity.map(
+          (classActivityItem) => {
+            return {
+              id: classActivityItem.id,
+              categoryName: classActivityItem.activity_name,
+              activityDetails: classActivityItem.sub_activity.map(
+                (subActivityItem) => {
+                  return {
+                    subActivityId: subActivityItem.activity_id,
+                    subActivityName: subActivityItem.sub_activity_name,
+                    subActivityNumber: subActivityItem.sub_activity_number,
+                    subActivityContent: subActivityItem.content,
+                  };
+                }
+              ),
+            };
+          }
+        );
+        console.log(this.activity);
+      } catch (error) {
+        console.error("Error fetching user classes:", error);
+      }
+    },
+
   },
 
     mounted() {
         this.getDataClassDetail();
+        this.getClassActivity();
     },
 };
 </script>

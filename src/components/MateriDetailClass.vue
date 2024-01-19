@@ -67,14 +67,13 @@
       <el-tab-pane label="Ulasan" name="second">
         <div class="content">
           <h2>Ulasan Anda</h2>
-          <el-rate size="large" v-model="value1" />
+          <el-rate size="large" v-model="newRate" />
           <el-input
             style="margin-top: 20px"
-            v-model="textarea"
+            v-model="newComment"
             :rows="6"
             type="textarea"
             placeholder="Berikan Ulasan Anda"
-            @change="textareaChange"
           />
           <el-button
             style="
@@ -84,9 +83,10 @@
               background-color: #f05326;
               color: #ffffff;
             "
-            @click="submit"
+            @click="addComment"
             >Submit</el-button
           >
+          <hr />
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -116,7 +116,6 @@ export default {
     return {
       activeName: "first",
       value1: null,
-      textarea: "",
       id: this.$route.params.id,
       kelas: {},
       fasil: {},
@@ -161,7 +160,7 @@ export default {
           }
         );
 
-        this.category = response.data.class.category
+        this.category = response.data.class.category;
         console.log(this.category);
       } catch (error) {
         console.error("Error fetching user classes:", error);

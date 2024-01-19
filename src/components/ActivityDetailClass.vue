@@ -1,6 +1,6 @@
 <template>
   <div class="boxContent">
-    <el-progress class="content" :percentage="0" />
+    <el-progress class="content" :percentage="progressPercentage" />
     <el-tabs
       style="padding: 30px"
       v-model="activeName2"
@@ -38,9 +38,10 @@
                     </div>
                     <div>
                       <div
-                        style="display: flex; flex-direction: column"
+                        style="display: flex; flex-direction: column; cursor: pointer;"
                         v-for="subActivityItem in activityDetail.activityDetails"
                         :key="subActivityItem.subActivityId"
+                        @click="openSubActivity(subActivityItem.subActivityId)"
                       >
                         <h4 style="margin: 0">
                             {{ subActivityItem.subActivityNumber }}. {{ subActivityItem.subActivityName }}
@@ -137,6 +138,7 @@ export default {
       checkIcons: [],
       id: this.$route.params.id,
       activity: {},
+      
       //   subActivity: [],
     };
   },
@@ -159,6 +161,10 @@ export default {
 
     handleClick(tab, event) {
       console.log(tab, event);
+    },
+
+    openSubActivity(index) {
+      this.selectedSubActivity = index;
     },
 
     async getClassActivity() {
@@ -195,7 +201,12 @@ export default {
         console.error("Error fetching user classes:", error);
       }
     },
+    },
 
+  computed: {
+    progressPercentage() {
+      return (this.countOpenActivity / this.activity.length) * 100;
+    },
     
     // async getSubActivity() {
     //   try {
