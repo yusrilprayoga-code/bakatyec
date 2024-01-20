@@ -1,11 +1,26 @@
 <template>
     <div class="boxContent">
-        <div id="1" style="display: none;">
-            <img src="../assets/1.png" width="100%" height="auto" alt="">
-        </div>
-        <div id="2" style="display: none;">
+      <!-- <h2>{{ param }}</h2> -->
+      <div v-for="activityDetail in activity" :key="activityDetail.id">
+        <div v-for="(subActivityItem) in activityDetail.activityDetails" :key="subActivityItem.subActivityId">
+          <div v-if="subActivityItem.subActvityType == 'Menonton Video' && subActivityItem.subActivityId == param">
             <iframe width="100%" style="height:30vw" src="https://www.youtube.com/embed/RunuGmKxwCU?si=UoTb7sFXGWFxLmNl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div v-if="subActivityItem.subActvityType == 'Membaca E-Book' && subActivityItem.subActivityId == param">
+            <h1>Membaca Ebook</h1>
+          </div>
+          <div v-if="subActivityItem.subActvityType == 'Mengerjakan Tugas' && subActivityItem.subActivityId == param">
+            <h1>Mengerjakan Tugas</h1>
+          </div>
+          <!-- <h2 v-if="subActivityItem.subActivityId == param" >{{ subActivityItem.subActvityType }}</h2> -->
         </div>
+      </div>
+      <div id="1" style="display: none;">
+          <img src="../assets/1.png" width="100%" height="auto" alt="">
+      </div>
+      <div id="2" style="display: none;">
+          <iframe width="100%" style="height:30vw" src="https://www.youtube.com/embed/RunuGmKxwCU?si=UoTb7sFXGWFxLmNl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
     </div>
 
 </template>
@@ -13,18 +28,19 @@
 
 import axios from "axios";
 export default {
-
+  props: ['param'], 
+  
   data() {
     return  {
       id: this.$route.params.id,
-      kelas: {},
+      activity: {},
     }
   },
 
   methods: {
     async getMateri() {
       try {
-            const response = await axios.get(
+        const response = await axios.get(
           `http://127.0.0.1:8000/api/user/classes/${this.id}`,
           {
             headers: {
@@ -32,25 +48,45 @@ export default {
             },
           }
         );
-        // this.loading = false;
-        this.kelas = response.data;
-        console.log(this.kelas);
-        } catch (error) {
-            console.error("Error fetching user classes:", error);
-        }
+
+        this.activity = response.data.class.class_activity.map(
+          (classActivityItem) => {
+            return {
+              id: classActivityItem.id,
+              categoryName: classActivityItem.activity_name,
+              activityDetails: classActivityItem.sub_activity.map(
+                (subActivityItem) => {
+                  return {
+                    subActivityId: subActivityItem.id,
+                    subActivityName: subActivityItem.sub_activity_name,
+                    subActivityNumber: subActivityItem.sub_activity_number,
+                    subActivityContent: subActivityItem.content,
+                    subActvityType: subActivityItem.type.type_name,
+                    progress: subActivityItem.user_progress,
+                  };
+                }
+              ),
+            };
+          }
+        );
+        console.log(this.activity);
+      } catch (error) {
+        console.error("Error fetching user classes:", error);
+      }
     },
     },
 
   mounted() {
-    const jenis = 2;
-    // 1 merupakan id dari type mengerjakan tugas
-    // 2 merupakan id dari type menonton video
-    // 3 merupakan id dari type membaca e book
+    this.getMateri()
+    // const jenis = 2;
+    // // 1 merupakan id dari type mengerjakan tugas
+    // // 2 merupakan id dari type menonton video
+    // // 3 merupakan id dari type membaca e book
 
-      const element = document.getElementById(jenis);
-      if (element) {
-        element.style.display = 'flex';
-      }
+    //   const element = document.getElementById(jenis);
+    //   if (element) {
+    //     element.style.display = 'flex';
+    //   }
   },
   
 };

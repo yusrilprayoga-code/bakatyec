@@ -13,7 +13,7 @@
     <h2>{{ kelas.class_name }}</h2>
     <el-row justify="space-between">
       <el-col :span="24" :md="{ span: 15 }">
-        <MateriSubActivity v-if="pilih"/>
+        <MateriSubActivity :param= this.pilih v-if="pilih"/>
         <MateriDetailClass v-if="!pilih"/>
       </el-col>
       <el-col :span="24" :md="{ span: 8 }">
