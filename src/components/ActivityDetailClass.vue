@@ -123,8 +123,10 @@ export default {
     handleClick(tab, event) {
       console.log(tab, event);
     },
-    addProgress(sub_activity_id) {
-      axios.post(
+
+
+    async addProgress(sub_activity_id) {
+      const response = await axios.post(
         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
         {
           answer: 'contoh',
@@ -141,6 +143,9 @@ export default {
         message: 'This is a success message',
         type: 'success',
       });
+      if (response) {
+        this.$router.go()
+      }
     },
 
     async getClassActivity() {
