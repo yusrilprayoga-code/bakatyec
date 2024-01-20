@@ -2,6 +2,7 @@
 <template>
   <div class="form">
     <form @submit.prevent="login">
+      <h1>Welcome Login Here</h1>
       <label>Email:</label>
       <input v-model="email" type="text" placeholder="Masukkan Email" />
 
@@ -100,14 +101,12 @@ export default {
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 300px;
+  margin-top: 200px;
   margin-bottom: 300px;
   background: white;
-  padding: 20px;
+  padding: 50px;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  justify-content: center;
 }
 
 label {
@@ -120,25 +119,28 @@ label {
 input {
   margin-bottom: 10px;
   width: 300px;
-  height: 30px;
-  border-radius: 5px;
+  height: 50px;
+  border-radius: 10px;
   border: 1px solid #dcdfe6;
   padding-left: 10px;
 }
 
 .button-submit {
   margin-top: 10px;
-  width: 300px;
-  height: 30px;
-  border-radius: 5px;
+  width: 315px;
+  height: 50px;
+  border-radius: 10px;
   border: none;
-  background-color: #409eff;
+  background-color: #f05326;
   color: white;
   cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
 }
 
-button:hover {
-  background-color: #66b1ff;
+.button-submit:hover {
+  background-color: #f37b1d;
+  transition: 0.3s ease-in-out;
 }
 
 .form {
