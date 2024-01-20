@@ -8,17 +8,20 @@
             <el-collapse accordion>
               <el-collapse-item v-for="activityDetail in activity" :key="activityDetail.id">
                 <template #title>
-                  <h4 class="activityTitle">
+                  <h4 class="activityTitle" @click.prevent="openContent(null)">
                     {{ activityDetail.categoryName.substring(0, 15) + "..." }}
                   </h4>
                 </template>
                 <hr />
-                <div
-                  class="activityContent" v-for="(subActivityItem, index) in activityDetail.activityDetails"
+                <div class="activityContent" v-for="(subActivityItem, index) in activityDetail.activityDetails"
                   :key="subActivityItem.subActivityId"
                   @click.prevent="!(subActivityItem.progress[0]) ? addProgress(subActivityItem.subActivityId) && openContent(subActivityItem.subActivityId) : openContent(subActivityItem.subActivityId)">
+                  {{ countSubActivity(subActivityItem.subActivityId) }}
                   <div class="detail">
-                    <div class="checkIcon" v-if ="(subActivityItem.progress[0])" style="width: 20px">
+                    <div class="checkIcon"
+                      v-if="(subActivityItem.progress[0]) || pilih.includes(subActivityItem.subActivityId)"
+                      style="width: 20px">
+                      {{ countComplete(subActivityItem.subActivityId) }}
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728="" width="15">
                         <path fill="#67C23A"
                           d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896m-55.808 536.384-99.52-99.584a38.4 38.4 0 1 0-54.336 54.336l126.72 126.72a38.272 38.272 0 0 0 54.336 0l262.4-262.464a38.4 38.4 0 1 0-54.272-54.336z">
@@ -93,28 +96,26 @@ import axios from "axios";
 export default {
   data() {
     return {
-      pilih: null,
+      pilih: [],
       activeName2: "pertama",
-      countOpenActivity: 0, // jumlah activity yang telah dibuka
+      subActivity: [], // jumlah activity yang telah dibuka
       checkIcons: [],
       id: this.$route.params.id,
       activity: {},
+      completed: []
     };
   },
 
   methods: {
-    openActivity(index) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const jumlahPenggunaClass = this.checkIcons.length;
-      if (index === 0) {
-        //detail.setAttribute('class', "checkIcon");
-        // openContent();
-      } else {
-        const isiKelas = this.checkIcons[index - 1].getAttribute("class");
-        if (isiKelas === "checkIcon") {
-          //detail.setAttribute('class', "checkIcon");
-          // openContent();
-        }
+    countSubActivity(x) {
+      if (!this.subActivity.includes(x)) {
+        this.subActivity.push(x);
+      }
+    },
+
+    countComplete(x) {
+      if (!this.completed.includes(x)) {
+        this.completed.push(x);
       }
     },
 
@@ -123,13 +124,13 @@ export default {
     },
 
     openContent(sub_activity_id) {
-      this.pilih = sub_activity_id;
       this.$emit('task', sub_activity_id);
+      this.pilih.push(sub_activity_id);
       return this.pilih;
     },
 
     async addProgress(sub_activity_id) {
-      const response = await axios.post(
+      await axios.post(
         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
         {
           answer: 'contoh',
@@ -143,12 +144,9 @@ export default {
       );
       ElNotification({
         title: 'Success',
-        message: 'This is a success message',
+        message: 'You have finished the task',
         type: 'success',
       });
-      // if (response) {
-      //   this.$router.go()
-      // }
     },
 
     async getClassActivity() {
@@ -191,80 +189,12 @@ export default {
 
   computed: {
     progressPercentage() {
-      return (this.countOpenActivity / this.activity.length) * 100;
+      return (this.completed.length / this.subActivity.length) * 100;
     },
-
-    // async getSubActivity() {
-    //   try {
-    //     const response = await axios.get(
-    //       `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-    //       {
-    //         headers: {
-    //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //         },
-    //       }
-    //     );
-    //     this.subActivity = [];
-
-    //     response.data.class.class_activity.forEach((classActivityItem) => {
-    //       classActivityItem.sub_activity.forEach((subActivityItem) => {
-    //         this.subActivity.push({
-    //           subActivityId: subActivityItem.activity_id,
-    //           subActivityName: subActivityItem.sub_activity_name,
-    //           subActivityNumber: subActivityItem.sub_activity_number,
-    //           subActivityContent: subActivityItem.content,
-    //         });
-    //       });
-    //     });
-
-    //     console.log(this.subActivity);
-    //   } catch (error) {
-    //     console.error("Error fetching user classes:", error);
-    //   }
-    // },
   },
 
   mounted() {
     this.getClassActivity();
-    // this.getSubActivity();
-    this.checkIcons = document.getElementsByClassName("checkIcon");
-
-    for (
-      let index = 0;
-      index < this.countOpenActivity && index < this.checkIcons.length;
-      index++
-    ) {
-      if (this.checkIcons[index]) {
-        this.checkIcons[index].setAttribute("class", "checkIcon");
-      }
-    }
   },
 };
-
-// import { ref, onMounted } from 'vue';
-
-// const activeName2 = ref('pertama');
-// const countOpenActivity = ref(2); // jumlah activity yang telah dibuka
-// const checkIcons = ref([]);
-
-// onMounted(() => {
-//   checkIcons.value = document.getElementsByClassName('checkIcon');
-//   for (let index = 0; index < countOpenActivity.value; index++) {
-//     checkIcons.value[index].setAttribute('class', 'checkIcon');
-//   }
-// });
-
-// function openActivity(index: number) {
-//   const jumlahPenggunaClass = checkIcons.value.length;
-//   if (index === 0) {
-//     //detail.setAttribute('class', "checkIcon");
-//     // openContent();
-//   } else {
-//     const isiKelas = checkIcons.value[index - 1].getAttribute('class');
-//     if (isiKelas === 'checkIcon') {
-//       //detail.setAttribute('class', "checkIcon");
-//       // openContent();
-//     }
-//   }
-//}
 </script>

@@ -1,6 +1,5 @@
 <template>
     <div class="boxContent">
-      <!-- <h2>{{ param }}</h2> -->
       <div v-for="activityDetail in activity" :key="activityDetail.id">
         <div v-for="(subActivityItem) in activityDetail.activityDetails" :key="subActivityItem.subActivityId">
           <div v-if="subActivityItem.subActvityType == 'Menonton Video' && subActivityItem.subActivityId == param">
@@ -12,7 +11,6 @@
           <div v-if="subActivityItem.subActvityType == 'Mengerjakan Tugas' && subActivityItem.subActivityId == param">
             <h1>Mengerjakan Tugas</h1>
           </div>
-          <!-- <h2 v-if="subActivityItem.subActivityId == param" >{{ subActivityItem.subActvityType }}</h2> -->
         </div>
       </div>
       <div id="1" style="display: none;">
@@ -78,15 +76,6 @@ export default {
 
   mounted() {
     this.getMateri()
-    // const jenis = 2;
-    // // 1 merupakan id dari type mengerjakan tugas
-    // // 2 merupakan id dari type menonton video
-    // // 3 merupakan id dari type membaca e book
-
-    //   const element = document.getElementById(jenis);
-    //   if (element) {
-    //     element.style.display = 'flex';
-    //   }
   },
   
 };
