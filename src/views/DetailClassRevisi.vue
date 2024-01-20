@@ -13,11 +13,11 @@
     <h2>{{ kelas.class_name }}</h2>
     <el-row justify="space-between">
       <el-col :span="24" :md="{ span: 15 }">
-        <MateriSubActivity v-model="setSelectedActivityIndex" style="display: none"/>
-        <MateriDetailClass v-model="setSelectedActivityIndex" />
+        <MateriSubActivity v-if="pilih"/>
+        <MateriDetailClass v-if="!pilih"/>
       </el-col>
       <el-col :span="24" :md="{ span: 8 }">
-        <ActivityDetailClass  />
+        <ActivityDetailClass @task="getPilih" />
       </el-col>
     </el-row>
   </div>
@@ -33,25 +33,29 @@ import MateriSubActivity from "../components/MateriSubActivity.vue";
 import axios from 'axios';
 
 export default {
-  
-  data() {
-    return {
-        id: this.$route.params.id,
-        kelas: {},
-        activity: {},
-    };
-  },
+
   components: {
     MateriDetailClass,
     ActivityDetailClass,
     MateriSubActivity,
   },
+  
+  data() {
+    return {
+        pilih: null,
+        id: this.$route.params.id,
+        kelas: {},
+        activity: {},
+    };
+  },
 
   methods: {
-
+    getPilih(sub_activity_id) {
+      this.pilih = sub_activity_id
+    },
     setSelectedActivityIndex(index) {
-    this.selectedActivityIndex = index;
-  },
+      this.selectedActivityIndex = index;
+    },
     async getDataClassDetail() {
       try {
             const response = await axios.get(
@@ -107,9 +111,9 @@ export default {
 
   },
 
-    mounted() {
-        this.getDataClassDetail();
-        this.getClassActivity();
-    },
+  mounted() {
+      this.getDataClassDetail();
+      this.getClassActivity();
+  },
 };
 </script>

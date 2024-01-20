@@ -13,12 +13,12 @@
                   </h4>
                 </template>
                 <hr />
-                <div 
+                <div
                   class="activityContent" v-for="(subActivityItem, index) in activityDetail.activityDetails"
                   :key="subActivityItem.subActivityId"
-                  @click.prevent="!(subActivityItem.progress[0]) ? addProgress(subActivityItem.subActivityId) : ''">
+                  @click.prevent="!(subActivityItem.progress[0]) ? addProgress(subActivityItem.subActivityId) && openContent(subActivityItem.subActivityId) : openContent(subActivityItem.subActivityId)">
                   <div class="detail">
-                    <div class="checkIcon" v-show="(subActivityItem.progress[0])" style="width: 20px">
+                    <div class="checkIcon" v-if ="(subActivityItem.progress[0])" style="width: 20px">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728="" width="15">
                         <path fill="#67C23A"
                           d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896m-55.808 536.384-99.52-99.584a38.4 38.4 0 1 0-54.336 54.336l126.72 126.72a38.272 38.272 0 0 0 54.336 0l262.4-262.464a38.4 38.4 0 1 0-54.272-54.336z">
@@ -93,14 +93,12 @@ import axios from "axios";
 export default {
   data() {
     return {
+      pilih: null,
       activeName2: "pertama",
       countOpenActivity: 0, // jumlah activity yang telah dibuka
       checkIcons: [],
       id: this.$route.params.id,
       activity: {},
-      // isClicked: false
-
-      // subActivity: [],
     };
   },
 
@@ -124,6 +122,11 @@ export default {
       console.log(tab, event);
     },
 
+    openContent(sub_activity_id) {
+      this.pilih = sub_activity_id;
+      this.$emit('task', sub_activity_id);
+      return this.pilih;
+    },
 
     async addProgress(sub_activity_id) {
       const response = await axios.post(
@@ -143,9 +146,9 @@ export default {
         message: 'This is a success message',
         type: 'success',
       });
-      if (response) {
-        this.$router.go()
-      }
+      // if (response) {
+      //   this.$router.go()
+      // }
     },
 
     async getClassActivity() {
