@@ -28,23 +28,22 @@
         </div>
       </el-carousel-item>
     </el-carousel>
-    <h2>Kelas Prakerja 2023 yang Tersedia</h2>
     <el-table v-loading="loading" v-if="loading">
       <b-spinner></b-spinner>
     </el-table>
     <el-row class="flex-container">
-      <el-col
+      <el-col 
         class="col-container"
-        v-for="kelas in kelass"
+        v-for="(kelas, index) in kelass"
         :key="kelas.id"
         :span="24"
         :md="5"
         :lg="5"
         :xl="2"
       >
-        <el-card :body-style="{ padding: '0px' }" class="card-class">
+        <el-card v-if="index < 4" :body-style="{ padding: '0px' }" class="card-class">
           <img
-            src="../assets/classImage.jpg"
+            :src="`http://127.0.0.1:8000/images/` + kelas.class_thumbnail"
             class="image"
             style="width: 100%"
           />
@@ -65,10 +64,7 @@
               <p class="price">Rp 1.500.000</p>
             </div>
             <div class="bottom">
-              <el-button type="danger button" @click="open" plain round
-                >Beli Kelas Online</el-button
-              >
-              <!-- <router-link :to="{ name: 'details' }"></router-link> -->
+              <el-button type="danger button" @click="open" plain round>Beli Kelas Online</el-button>
             </div>
           </div>
         </el-card>
