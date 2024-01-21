@@ -126,16 +126,7 @@ export default {
   },
 
   mounted() {
-    this.getMateri();
-    // const jenis = 2;
-    // // 1 merupakan id dari type mengerjakan tugas
-    // // 2 merupakan id dari type menonton video
-    // // 3 merupakan id dari type membaca e book
-
-    //   const element = document.getElementById(jenis);
-    //   if (element) {
-    //     element.style.display = 'flex';
-    //   }
+    this.getMateri()
   },
 };
 </script>
