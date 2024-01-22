@@ -28,33 +28,25 @@
         </div>
       </el-carousel-item>
     </el-carousel>
-    <h2>Kelas Prakerja 2023 yang Tersedia</h2>
+    <el-row justify="space-between">
+      <el-col :span="8">
+        <h2>Kelas Prakerja 2023 yang Tersedia</h2>
+      </el-col>
+      <el-col :span="2">
+        <h2>
+          <el-button type="warning" class="card-name" @click="lihatSemua" link>Lihat Semua</el-button>
+        </h2>
+      </el-col>
+    </el-row>
     <el-table v-loading="loading" v-if="loading">
       <b-spinner></b-spinner>
     </el-table>
     <el-row class="flex-container">
-      <el-col
-        class="col-container"
-        v-for="kelas in kelass"
-        :key="kelas.id"
-        :span="24"
-        :md="5"
-        :lg="5"
-        :xl="2"
-      >
-        <el-card :body-style="{ padding: '0px' }" class="card-class">
-          <img
-            src="../assets/classImage.jpg"
-            class="image"
-            style="width: 100%"
-          />
+      <el-col class="col-container" v-for="(kelas, index) in kelass" :key="kelas.id" :span="24" :md="5" :lg="5" :xl="2">
+        <el-card v-if="index < limit" :body-style="{ padding: '0px' }" class="card-class">
+          <img :src="`http://127.0.0.1:8000/images/` + kelas.class_thumbnail" class="image" style="width: 100%" />
           <div style="padding: 14px">
-            <el-popover
-              placement="bottom"
-              :title="kelas.class_name"
-              :width="200"
-              trigger="hover"
-            >
+            <el-popover placement="bottom" :title="kelas.class_name" :width="200" trigger="hover">
               <template #reference>
                 <p class="card-name">
                   {{ kelas.class_name.substring(0, 20) + "..." }}
@@ -65,10 +57,7 @@
               <p class="price">Rp 1.500.000</p>
             </div>
             <div class="bottom">
-              <el-button type="danger button" @click="open" plain round
-                >Beli Kelas Online</el-button
-              >
-              <!-- <router-link :to="{ name: 'details' }"></router-link> -->
+              <el-button type="danger button" @click="open" plain round>Beli Kelas Online</el-button>
             </div>
           </div>
         </el-card>
@@ -84,12 +73,16 @@ export default {
   name: "BerandaView",
   data() {
     return {
+      limit: 4,
       kelass: [],
       loading: true,
     };
   },
 
   methods: {
+    lihatSemua(){
+      this.limit = 1/0;
+    },
     open() {
       //pilih platform pembelian
       ElMessageBox.confirm("", "Pilih Platform Pembelian", {
@@ -151,24 +144,29 @@ export default {
 .home {
   margin: 50px 100px 50px 100px;
 }
+
 .button {
   width: 60%;
   padding: 10px;
 }
+
 p {
   text-align: justify;
   text-justify: inter-word;
 }
+
 .footer {
   height: auto;
   padding-top: 30px;
   background-color: white;
 }
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .price {
   font-weight: bold;
   font-size: 16px;
@@ -193,6 +191,7 @@ p {
   line-height: normal;
   font-size: 18px;
 }
+
 .card-class {
   background-color: transparent;
   box-shadow: none;

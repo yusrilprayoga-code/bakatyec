@@ -1,7 +1,7 @@
 <template>
   <div class="boxContent">
     <el-progress class="content" :percentage="progressPercentage" />
-    <el-tabs style="padding: 10px" v-model="activeName2" class="demo-tabs" @tab-click="handleClick">
+    <el-tabs style="padding: 1z0px" v-model="activeName2" class="demo-tabs" @tab-click="handleClick">
       <el-tab-pane label="Aktivitas" name="pertama">
         <el-scrollbar height="auto">
           <div class="demo-collapse">
