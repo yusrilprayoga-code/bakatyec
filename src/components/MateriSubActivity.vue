@@ -185,7 +185,6 @@ el-upload {
 
 .button-download-tugas {
   border: none;
-  font-size: 20px;
   color: #000;
   margin: 25px;
 }
