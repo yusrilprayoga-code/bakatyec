@@ -28,7 +28,7 @@
           </span>
           <div class="bottom">
             <span class="cards-price">{{ cardsOne.price }}</span>
-            <el-progress :color="customColor" />
+            <el-progress :color="customColor" :percentage=cardsOne.progress />
           </div>
         </div>
       </el-card>

@@ -144,6 +144,17 @@ export default {
           },
         }
       );
+      await axios.patch(
+        `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+        {
+          progress: ((this.completed.length / this.subActivity.length) * 100)
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       ElNotification({
         title: 'Success',
         message: 'You have finished the task',
