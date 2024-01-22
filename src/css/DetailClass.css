@@ -41,8 +41,22 @@ el-link {
     color: black;
 }
 
-#buttonActive {
+.buttonsertifikat {
     background-color: #f05326;
+    color: white;
+    border-radius: 50px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: none;
+    transition: all 0.3s ease 2s;
+}
+
+.buttonsertifikat:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease 2s;
+    background-color: #ed9076;
 }
 
 #buttonNotActive {

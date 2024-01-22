@@ -55,10 +55,7 @@
             </el-col>
           </el-row>
           <el-row>
-            <el-col
-              v-for="fasilDetail in fasils"
-              :key="fasilDetail.fasil.id"
-            >
+            <el-col v-for="fasilDetail in fasils" :key="fasilDetail.fasil.id">
               <p>{{ fasilDetail.fasil.fasil_desc }}</p>
             </el-col>
           </el-row>
@@ -89,21 +86,37 @@
           <hr />
           <!-- display ulasan -->
           <h2>Ulasan Pengguna</h2>
-          <el-row>
+          <el-row >
             <el-col :span="4">
               <img
                 src="../assets/fasilitator3.jpg"
                 alt="User"
                 width="50%"
-                style="border-radius: 50%; margin-left: 10px;"
+                style="border-radius: 50%; margin-left: 10px"
               />
             </el-col>
-            <el-col :span="20">
+            <el-col :span="20" style="display: flex; flex-direction: column">
               <h3>
                 {{ user.name }}
               </h3>
               <el-rate size="large" v-model="user_kelas.rate" />
               <p>{{ user_kelas.ulasan }}</p>
+              <button
+                style="
+                  border-radius: 999;
+                  margin-top: 20px;
+                  padding: 0px;
+                  background-color: red;
+                  color: #ffffff;
+                  border: none;
+                  height: 30px;
+                  border-radius: 20px;
+                  cursor: pointer;
+                "
+                @click="deleteUlasan"
+              >
+                Delete
+              </button>
             </el-col>
           </el-row>
         </div>
@@ -152,24 +165,43 @@ export default {
   },
 
   methods: {
-    addUlasan() { 
+    addUlasan() {
       axios.patch(
-          `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-          {
-            rate: this.user_kelas.rate,
-            ulasan: this.user_kelas.ulasan
+        `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+        {
+          rate: this.user_kelas.rate,
+          ulasan: this.user_kelas.ulasan,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          },
-        );
+        }
+      );
 
-        this.$message({
-          message: "Ulasan berhasil ditambahkan",
-          type: "success",
-        });
+      this.$message({
+        message: "Ulasan berhasil ditambahkan",
+        type: "success",
+      });
+    },
+
+    deleteUlasan() {
+      axios.delete(
+        `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+        {
+          rate: this.user_kelas.rate,
+          ulasan: this.user_kelas.ulasan,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      this.$message({
+        message: "Ulasan berhasil dihapus",
+        type: "success",
+      });
     },
 
     async getUserClass() {
@@ -185,7 +217,7 @@ export default {
         // this.loading = false;
         this.user_kelas = response.data;
         this.kelas = response.data.class;
-        this.fasils = response.data.class.class_fasil; 
+        this.fasils = response.data.class.class_fasil;
         this.category = response.data.class.category;
         console.log(this.user_kelas);
       } catch (error) {
@@ -193,7 +225,7 @@ export default {
       }
     },
 
-    async getName () {
+    async getName() {
       try {
         const response = await axios.get("http://127.0.0.1:8000/api/me", {
           headers: {
@@ -202,88 +234,87 @@ export default {
         });
 
         this.user = response.data;
-        }
-        catch (error) {
-          console.error("Error fetching user classes:", error);
-        }
-      },
+      } catch (error) {
+        console.error("Error fetching user classes:", error);
+      }
+    },
 
-  //   async getDataClassDetail() {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //           },
-  //         }
-  //       );
-  //       // this.loading = false;
-  //       this.kelas = response.data.class;
-  //       console.log(this.kelas);
-  //     } catch (error) {
-  //       console.error("Error fetching user classes:", error);
-  //     }
-  //   },
+    //   async getDataClassDetail() {
+    //     try {
+    //       const response = await axios.get(
+    //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+    //         {
+    //           headers: {
+    //             Authorization: `Bearer ${localStorage.getItem("token")}`,
+    //           },
+    //         }
+    //       );
+    //       // this.loading = false;
+    //       this.kelas = response.data.class;
+    //       console.log(this.kelas);
+    //     } catch (error) {
+    //       console.error("Error fetching user classes:", error);
+    //     }
+    //   },
 
-  //   async getDataCategory() {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //           },
-  //         }
-  //       );
+    //   async getDataCategory() {
+    //     try {
+    //       const response = await axios.get(
+    //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+    //         {
+    //           headers: {
+    //             Authorization: `Bearer ${localStorage.getItem("token")}`,
+    //           },
+    //         }
+    //       );
 
-  //       this.category = response.data.class.category;
-  //       console.log(this.category);
-  //     } catch (error) {
-  //       console.error("Error fetching user classes:", error);
-  //     }
-  //   },
+    //       this.category = response.data.class.category;
+    //       console.log(this.category);
+    //     } catch (error) {
+    //       console.error("Error fetching user classes:", error);
+    //     }
+    //   },
 
-  //   async getFasilDetail() {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //           },
-  //         }
-  //       );
+    //   async getFasilDetail() {
+    //     try {
+    //       const response = await axios.get(
+    //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+    //         {
+    //           headers: {
+    //             Authorization: `Bearer ${localStorage.getItem("token")}`,
+    //           },
+    //         }
+    //       );
 
-  //       this.fasil = response.data.class.class_fasil;
-  //       console.log(this.fasil);
-  //     } catch (error) {
-  //       console.error("Error fetching user classes:", error);
-  //     }
-  //   },
+    //       this.fasil = response.data.class.class_fasil;
+    //       console.log(this.fasil);
+    //     } catch (error) {
+    //       console.error("Error fetching user classes:", error);
+    //     }
+    //   },
 
-  //   async getfasildetails() {
-  //     const response = await axios.get(
-  //       `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //         },
-  //       }
-  //     );
-  //     this.fasilDetailvalue = response.data.class.class_fasil;
-  //     // .map(
-  //     //   (fasilDetail) => {
-  //     //     return {
-  //     //       fasilId: fasilDetail.id,
-  //     //       fasilName: fasilDetail.fasil.fasil_name,
-  //     //       fasilDesc: fasilDetail.fasil.fasil_desc,
-  //     //       fasilPhoto: fasilDetail.fasil.fasil_photo,
-  //     //     };
-  //     //   }
-  //     // );
-  //     console.log(this.fasilDetailvalue);
-  //   },
+    //   async getfasildetails() {
+    //     const response = await axios.get(
+    //       `http://127.0.0.1:8000/api/user/classes/${this.id}`,
+    //       {
+    //         headers: {
+    //           Authorization: `Bearer ${localStorage.getItem("token")}`,
+    //         },
+    //       }
+    //     );
+    //     this.fasilDetailvalue = response.data.class.class_fasil;
+    //     // .map(
+    //     //   (fasilDetail) => {
+    //     //     return {
+    //     //       fasilId: fasilDetail.id,
+    //     //       fasilName: fasilDetail.fasil.fasil_name,
+    //     //       fasilDesc: fasilDetail.fasil.fasil_desc,
+    //     //       fasilPhoto: fasilDetail.fasil.fasil_photo,
+    //     //     };
+    //     //   }
+    //     // );
+    //     console.log(this.fasilDetailvalue);
+    //   },
   },
 };
 </script>
