@@ -29,6 +29,14 @@
           "
         >
           <h1>Membaca Ebook</h1>
+          <div class="download-ebook">
+            <el-button class="button-download-tugas" type="submit" @click="downloadebook" >
+              <i class='bx bxs-file-pdf'></i> Download Ebook
+            </el-button>
+          </div>
+          <div class="baca-ebook">
+            <iframe width="100%" height="800px" title="pdf" :src="`${getFilePath}`" ></iframe>              
+          </div>
         </div>
         <div
           v-if="
@@ -37,19 +45,30 @@
           "
         >
           <h1>Mengerjakan Tugas</h1>
-          <div>
+          <div class="mengerjakan-tugas">
+            <div class="download-tugas">
+              <el-button class="button-download-tugas" type="submit"  >
+                <i class='bx bxs-file-pdf'></i> Download Tugas
+              </el-button>
+            </div>
+            <h4>
+              Upload tugas kamu disini!
+            </h4>
             <el-upload
-              v-model:file-list="fileList"
               class="upload-demo"
+              drag
               action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-              :on-preview="handlePreview"
-              :on-remove="handleRemove"
-              list-type="picture"
+              multiple
             >
-              <el-button style="padding-right: 100px; padding-left: 100px;" type="primary">Click to upload</el-button>
+              <el-icon class="el-icon--upload">
+               <i class='bx bxs-cloud-upload'></i>
+              </el-icon>
+              <div class="el-upload__text">
+                Drop file here or <em>click to upload</em>
+              </div>
               <template #tip>
                 <div class="el-upload__tip">
-                  jpg/png files with a size less than 500kb
+                  Allowed file types: pdf. Max file size: 500kb.
                 </div>
               </template>
             </el-upload>
@@ -58,7 +77,7 @@
         <!-- <h2 v-if="subActivityItem.subActivityId == param" >{{ subActivityItem.subActvityType }}</h2> -->
       </div>
     </div>
-    <div id="1" style="display: none">
+    <div id="1" style="display: none; ">
       <img src="../assets/1.png" width="100%" height="auto" alt="" />
     </div>
     <div id="2" style="display: none">
@@ -71,6 +90,7 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
       ></iframe>
+      <hr>
     </div>
   </div>
 </template>
@@ -87,6 +107,9 @@ export default {
   },
 
   methods: {
+    downloadebook() {
+      window.open("https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf");
+    },
     async getMateri() {
       try {
         const response = await axios.get(
@@ -126,8 +149,13 @@ export default {
   },
 
   mounted() {
-    this.getMateri()
+    this.getMateri();
   },
+
+  computed: {
+    getFilePath() {
+      return `https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf`;
+  }}
 };
 </script>
 
@@ -140,9 +168,25 @@ export default {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.baca-ebook {
+  width: 100%;
+  height: 100%;
+}
+
 el-upload {
   display: block;
   margin-top: 20px;
 }
 
+.button-download-tugas {
+  border: none;
+  font-size: 20px;
+  color: #000;
+  margin: 25px;
+}
+
+.button-download-tugas:hover {
+  background: none;
+  color: #f05326;
+}
 </style>

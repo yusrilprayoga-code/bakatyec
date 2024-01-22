@@ -51,7 +51,7 @@ export default {
 
   methods: {
     getPilih(sub_activity_id) {
-      this.pilih = sub_activity_id
+      this.pilih = sub_activity_id;
     },
     setSelectedActivityIndex(index) {
       this.selectedActivityIndex = index;

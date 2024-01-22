@@ -15,12 +15,14 @@
                 <hr />
                 <div class="activityContent" v-for="(subActivityItem, index) in activityDetail.activityDetails"
                   :key="subActivityItem.subActivityId"
+                  :style="(subActivityItem.subActivityId) ? 'background-color: #f5f7fa' : 'background-color: #fff'"
                   @click.prevent="!(subActivityItem.progress[0]) ? addProgress(subActivityItem.subActivityId) && openContent(subActivityItem.subActivityId) : openContent(subActivityItem.subActivityId)">
                   {{ countSubActivity(subActivityItem.subActivityId) }}
+                  
                   <div class="detail">
                     <div class="checkIcon"
                       v-if="(subActivityItem.progress[0]) || pilih.includes(subActivityItem.subActivityId)"
-                      style="width: 20px">
+                      >
                       {{ countComplete(subActivityItem.subActivityId) }}
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728="" width="15">
                         <path fill="#67C23A"
@@ -59,7 +61,7 @@
                                 d="M448 576a64 64 0 1 0 128 0 64 64 0 1 0-128 0m96-448v128h-64V128h-96a32 32 0 0 1 0-64h256a32 32 0 1 1 0 64z">
                               </path>
                             </svg>
-                            <p style="margin: 0 5px; color: #909399">00:02:02</p>
+                            <p style="margin: 0 5px; color: #909399">00:02:08</p>
                           </div>
                         </div>
                       </div>
