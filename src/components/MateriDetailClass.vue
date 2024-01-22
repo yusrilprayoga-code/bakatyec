@@ -87,6 +87,25 @@
             >Submit</el-button
           >
           <hr />
+          <!-- display ulasan -->
+          <h2>Ulasan Pengguna</h2>
+          <el-row>
+            <el-col :span="4">
+              <img
+                src="../assets/fasilitator3.jpg"
+                alt="User"
+                width="50%"
+                style="border-radius: 50%; margin-left: 10px;"
+              />
+            </el-col>
+            <el-col :span="20">
+              <h3>
+                {{ user.name }}
+              </h3>
+              <el-rate size="large" v-model="user_kelas.rate" />
+              <p>{{ user_kelas.ulasan }}</p>
+            </el-col>
+          </el-row>
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -120,6 +139,7 @@ export default {
       kelas: {},
       fasils: {},
       category: [],
+      user: {},
     };
   },
   mounted() {
@@ -128,6 +148,7 @@ export default {
     // this.getfasildetails();
     // this.getDataCategory();
     this.getUserClass();
+    this.getName();
   },
 
   methods: {
@@ -144,6 +165,11 @@ export default {
             },
           },
         );
+
+        this.$message({
+          message: "Ulasan berhasil ditambahkan",
+          type: "success",
+        });
     },
 
     async getUserClass() {
@@ -166,6 +192,21 @@ export default {
         console.error("Error fetching user classes:", error);
       }
     },
+
+    async getName () {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/api/me", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+
+        this.user = response.data;
+        }
+        catch (error) {
+          console.error("Error fetching user classes:", error);
+        }
+      },
 
   //   async getDataClassDetail() {
   //     try {

@@ -1,7 +1,7 @@
 <template>
   <div class="boxContent">
     <el-progress class="content" :percentage="progressPercentage" />
-    <el-tabs style="padding: 1z0px" v-model="activeName2" class="demo-tabs" @tab-click="handleClick">
+    <el-tabs style="padding: 10px" v-model="activeName2" class="demo-tabs" @tab-click="handleClick">
       <el-tab-pane label="Aktivitas" name="pertama">
         <el-scrollbar height="auto">
           <div class="demo-collapse">
@@ -21,6 +21,7 @@
                   
                   <div class="detail">
                     <div class="checkIcon"
+                     style="width: 20px;"
                       v-if="(subActivityItem.progress[0]) || pilih.includes(subActivityItem.subActivityId)"
                       >
                       {{ countComplete(subActivityItem.subActivityId) }}
@@ -147,7 +148,7 @@ export default {
       await axios.patch(
         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
         {
-          progress: ((this.completed.length / this.subActivity.length) * 100)
+          progress: ((this.completed.length / this.subActivity.length) * 100.0).toFixed(2),
         },
         {
           headers: {
@@ -202,7 +203,7 @@ export default {
 
   computed: {
     progressPercentage() {
-      return (this.completed.length / this.subActivity.length) * 100;
+      return ((this.completed.length / this.subActivity.length) * 100.0).toFixed(2);
     },
   },
 

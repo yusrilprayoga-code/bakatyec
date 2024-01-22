@@ -47,7 +47,7 @@
           <h1>Mengerjakan Tugas</h1>
           <div class="mengerjakan-tugas">
             <div class="download-tugas">
-              <el-button class="button-download-tugas" type="submit"  >
+              <el-button class="button-download-tugas" type="submit" @click="downloadtugas" >
                 <i class='bx bxs-file-pdf'></i> Download Tugas
               </el-button>
             </div>
@@ -110,6 +110,11 @@ export default {
     downloadebook() {
       window.open("https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf");
     },
+
+    downloadtugas() {
+      window.open("https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf");
+    },
+
     async getMateri() {
       try {
         const response = await axios.get(
