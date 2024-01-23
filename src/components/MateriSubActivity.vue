@@ -51,11 +51,15 @@
                 <i class='bx bxs-file-pdf'></i> Download Tugas
               </el-button>
             </div>
-            <h4>
+            <h4 v-if="!(subActivityItem.progress[0])">
               Upload tugas kamu disini!
             </h4>
-            <el-upload
-              class="upload-demo"
+            <h4 v-if="(subActivityItem.progress[0])">
+              Kamu sudah mengerjkan tugas
+            </h4>
+            <input v-if="! (subActivityItem.progress[0])" type="file" @change="uploadFile"/> 
+            <!-- <el-upload
+              class="upload-demo" 
               drag
               action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
               multiple
@@ -71,10 +75,9 @@
                   Allowed file types: pdf. Max file size: 500kb.
                 </div>
               </template>
-            </el-upload>
+            </el-upload> -->
           </div>
         </div>
-        <!-- <h2 v-if="subActivityItem.subActivityId == param" >{{ subActivityItem.subActvityType }}</h2> -->
       </div>
     </div>
     <div id="1" style="display: none; ">
@@ -102,6 +105,7 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      file_name: null,
       activity: {},
     };
   },
@@ -113,6 +117,22 @@ export default {
 
     downloadtugas() {
       window.open("https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf");
+    },
+
+    async uploadFile(e) { 
+      console.log(e.target.files[0]);
+      await axios.post(
+        `http://127.0.0.1:8000/api/user/sub_activity/${this.param}`,
+        {
+          file: e.target.files[0]
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            'Content-Type': "multipart/form-data"
+          },
+        }
+      );
     },
 
     async getMateri() {

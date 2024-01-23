@@ -33,7 +33,7 @@
                       : 'background-color: #fff'
                   "
                   @click.prevent="
-                    !subActivityItem.progress[0]
+                    (!subActivityItem.progress[0] && (subActivityItem.subActvityType != 'Mengerjakan Tugas') )
                       ? addProgress(subActivityItem.subActivityId) &&
                         openContent(subActivityItem.subActivityId)
                       : openContent(subActivityItem.subActivityId)
@@ -212,8 +212,6 @@ export default {
 
     openContent(sub_activity_id) {
       this.$emit("task", sub_activity_id);
-      this.pilih.push(sub_activity_id);
-      return this.pilih;
     },
 
     async addProgress(sub_activity_id) {
@@ -243,11 +241,13 @@ export default {
           },
         }
       );
+      this.pilih.push(sub_activity_id);
       ElNotification({
         title: "Success",
         message: "You have finished the task",
         type: "success",
       });
+      return this.pilih;
     },
 
     async getClassActivity() {
