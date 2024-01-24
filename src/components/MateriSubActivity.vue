@@ -1,7 +1,7 @@
 <template>
   <div class="boxContent">
     <!-- <h2>{{ param }}</h2> -->
-    <div v-for="activityDetail in activity" :key="activityDetail.id">
+    <div v-for="activityDetail in activity" :key="activityDetail.id" class="content">
       <div
         v-for="subActivityItem in activityDetail.activityDetails"
         :key="subActivityItem.subActivityId"
@@ -11,7 +11,8 @@
             subActivityItem.subActvityType == 'Menonton Video' &&
             subActivityItem.subActivityId == param
           "
-        >
+        > 
+        <h1>Menonton Video</h1>
           <iframe
             width="100%"
             style="height: 30vw"
@@ -30,12 +31,21 @@
         >
           <h1>Membaca Ebook</h1>
           <div class="download-ebook">
-            <el-button class="button-download-tugas" type="submit" @click="downloadebook" >
-              <i class='bx bxs-file-pdf'></i> Download Ebook
+            <el-button
+              class="button-download-tugas"
+              type="submit"
+              @click="downloadebook"
+            >
+              <i class="bx bxs-file-pdf"></i> Download Ebook
             </el-button>
           </div>
           <div class="baca-ebook">
-            <iframe width="100%" height="800px" title="pdf" :src="`${getFilePath}`" ></iframe>              
+            <iframe
+              width="100%"
+              height="800px"
+              title="pdf"
+              :src="`${getFilePath}`"
+            ></iframe>
           </div>
         </div>
         <div
@@ -46,31 +56,46 @@
         >
           <h1>Mengerjakan Tugas</h1>
           <div v-if="param % 2 == 0">
-            <div v-if="!(subActivityItem.progress[0])">
-              <h3>Jawab soal tersebut </h3>
+            <div v-if="!subActivityItem.progress[0]">
+              <h3>Jawab soal tersebut</h3>
               <el-radio-group v-model="radio">
                 <el-radio :label="1">Option A</el-radio>
                 <el-radio :label="2">Option B</el-radio>
                 <el-radio :label="3">Option C</el-radio>
               </el-radio-group>
               <el-row class="mb-4">
-                <el-button type="primary" @click=submitJawaban round>Submit</el-button>
+                <el-button type="primary" @click="submitJawaban" round
+                  >Submit</el-button
+                >
               </el-row>
             </div>
           </div>
           <div v-if="param % 2 != 0" class="mengerjakan-tugas">
             <div class="download-tugas">
-              <el-button class="button-download-tugas" type="submit" @click="downloadtugas" >
-                <i class='bx bxs-file-pdf'></i> Download Tugas
-              </el-button>
+              <p>
+                Download tugas kamu disini! <br />
+                <span style="font-size: 12px; color: #f05326; cursor: pointer;" @click="downloadtugas"
+                  >*klik tombol download untuk mendownload tugas</span
+                >
+              </p>
             </div>
-            <h4 v-if="!(subActivityItem.progress[0])">
+            <div class="upload">
+            <h4 v-if="!subActivityItem.progress[0]">
               Upload tugas kamu disini!
             </h4>
-            <h4 v-if="(subActivityItem.progress[0])">
-              Kamu sudah mengerjakan tugas
-            </h4>
-            <input v-if="! (subActivityItem.progress[0])" type="file" @change="uploadFile"/> 
+              <el-col :sm="24" :lg="24" v-if="subActivityItem.progress[0]">
+                <el-result
+                  icon="success"
+                  title="Success You have finished the Submission"
+                  sub-title="Please follow the instructions"
+                >
+                </el-result>
+              </el-col>
+            <input
+              v-if="!subActivityItem.progress[0]"
+              type="file"
+              @change="uploadFile"
+            />
             <!-- <el-upload
               class="upload-demo" 
               drag
@@ -90,10 +115,11 @@
               </template>
             </el-upload> -->
           </div>
+          </div>
         </div>
       </div>
     </div>
-    <div id="1" style="display: none; ">
+    <!-- <div id="1" style="display: none">
       <img src="../assets/1.png" width="100%" height="auto" alt="" />
     </div>
     <div id="2" style="display: none">
@@ -106,8 +132,8 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
       ></iframe>
-      <hr>
-    </div>
+      <hr />
+    </div> -->
   </div>
 </template>
 <script>
@@ -126,24 +152,28 @@ export default {
 
   methods: {
     downloadebook() {
-      window.open("https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf");
+      window.open(
+        "https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf"
+      );
     },
 
     downloadtugas() {
-      window.open("https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf");
+      window.open(
+        "https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf"
+      );
     },
 
-    async uploadFile(e) { 
+    async uploadFile(e) {
       console.log(e.target.files[0]);
       await axios.post(
         `http://127.0.0.1:8000/api/user/sub_activity/${this.param}`,
         {
-          file: e.target.files[0]
+          file: e.target.files[0],
         },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            'Content-Type': "multipart/form-data"
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -152,12 +182,12 @@ export default {
       await axios.post(
         `http://127.0.0.1:8000/api/user/sub_activity/${this.param}`,
         {
-          answer: this.radio 
+          answer: this.radio,
         },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            'Content-Type': "multipart/form-data"
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -208,37 +238,47 @@ export default {
   computed: {
     getFilePath() {
       return `https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf`;
-  }}
+    },
+  },
 };
 </script>
 
 <style>
-.boxContent {
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  .boxContent {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    align-content: center;
+    justify-content: center;
+    align-items: center ;
+  } 
+
+  .upload {
+    padding: 10px;
+    border-radius: 20px;
+  }
+.boxContent h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;  
+ text-align: center;
 }
 
-.baca-ebook {
-  width: 100%;
-  height: 100%;
-}
-
-el-upload {
-  display: block;
+.mengerjakan-tugas {
   margin-top: 20px;
 }
 
-.button-download-tugas {
-  border: none;
-  color: #000;
-  margin: 25px;
+.download-ebook {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.button-download-tugas:hover {
-  background: none;
-  color: #f05326;
+
+.button-download-tugas {
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
 }
 </style>
