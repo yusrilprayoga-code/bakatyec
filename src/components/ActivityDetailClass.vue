@@ -215,6 +215,7 @@ export default {
     },
 
     async addProgress(sub_activity_id) {
+      this.pilih.push(sub_activity_id);
       await axios.post(
         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
         {
@@ -241,7 +242,6 @@ export default {
           },
         }
       );
-      this.pilih.push(sub_activity_id);
       ElNotification({
         title: "Success",
         message: "You have finished the task",

@@ -45,7 +45,20 @@
           "
         >
           <h1>Mengerjakan Tugas</h1>
-          <div class="mengerjakan-tugas">
+          <div v-if="param % 2 == 0">
+            <div v-if="!(subActivityItem.progress[0])">
+              <h3>Jawab soal tersebut </h3>
+              <el-radio-group v-model="radio">
+                <el-radio :label="1">Option A</el-radio>
+                <el-radio :label="2">Option B</el-radio>
+                <el-radio :label="3">Option C</el-radio>
+              </el-radio-group>
+              <el-row class="mb-4">
+                <el-button type="primary" @click=submitJawaban round>Submit</el-button>
+              </el-row>
+            </div>
+          </div>
+          <div v-if="param % 2 != 0" class="mengerjakan-tugas">
             <div class="download-tugas">
               <el-button class="button-download-tugas" type="submit" @click="downloadtugas" >
                 <i class='bx bxs-file-pdf'></i> Download Tugas
@@ -55,7 +68,7 @@
               Upload tugas kamu disini!
             </h4>
             <h4 v-if="(subActivityItem.progress[0])">
-              Kamu sudah mengerjkan tugas
+              Kamu sudah mengerjakan tugas
             </h4>
             <input v-if="! (subActivityItem.progress[0])" type="file" @change="uploadFile"/> 
             <!-- <el-upload
@@ -104,6 +117,7 @@ export default {
 
   data() {
     return {
+      radio: null,
       id: this.$route.params.id,
       file_name: null,
       activity: {},
@@ -125,6 +139,20 @@ export default {
         `http://127.0.0.1:8000/api/user/sub_activity/${this.param}`,
         {
           file: e.target.files[0]
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            'Content-Type': "multipart/form-data"
+          },
+        }
+      );
+    },
+    async submitJawaban() {
+      await axios.post(
+        `http://127.0.0.1:8000/api/user/sub_activity/${this.param}`,
+        {
+          answer: this.radio 
         },
         {
           headers: {

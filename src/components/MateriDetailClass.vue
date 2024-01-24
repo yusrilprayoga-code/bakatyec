@@ -62,7 +62,10 @@
         </div>
       </el-tab-pane>
       <el-tab-pane label="Ulasan" name="second">
-        <div class="content">
+        <div class="content" v-if="user_kelas.progress != 100">
+          <h2>Anda harus menyelesaikan kelas ini terlebih dahulu</h2>
+        </div>
+        <div class="content"  v-if="user_kelas.progress == 100">
           <h2>Ulasan Anda</h2>
           <el-rate size="large" v-model="user_kelas.rate" />
           <el-input
@@ -101,7 +104,7 @@
               </h3>
               <el-rate size="large" v-model="user_kelas.rate" />
               <p>{{ user_kelas.ulasan }}</p>
-              <button
+              <!-- <button
                 style="
                   border-radius: 999;
                   margin-top: 20px;
@@ -116,7 +119,7 @@
                 @click="deleteUlasan"
               >
                 Delete
-              </button>
+              </button> -->
             </el-col>
           </el-row>
         </div>
