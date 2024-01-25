@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="text-align: start; margin-top: 50px">
+  <div class="containerDetailClass" style="text-align: start; margin: 50px auto;">
     <el-breadcrumb separator="/">
       <el-breadcrumb-item
         ><a href="#/class-menu" style="color: #f05326"

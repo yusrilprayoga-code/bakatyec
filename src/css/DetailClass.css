@@ -2,6 +2,10 @@ el-link {
     text-decoration: none;
 }
 
+.containerDetailClass {
+    width: 80%;
+}
+
 .boxContent {
     background-color: #ffffff;
 }
