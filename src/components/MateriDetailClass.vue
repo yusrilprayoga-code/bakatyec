@@ -1,6 +1,7 @@
 <template>
-  <div class="boxContent">
+  <div class="boxContent" v-loading="loading" >
     <img
+      v-loading="loading"
       :src="`http://127.0.0.1:8000/images/` + kelas.class_thumbnail"
       alt="Class Image"
       width="100%"
@@ -104,22 +105,6 @@
               </h3>
               <el-rate size="large" v-model="user_kelas.rate" />
               <p>{{ user_kelas.ulasan }}</p>
-              <!-- <button
-                style="
-                  border-radius: 999;
-                  margin-top: 20px;
-                  padding: 0px;
-                  background-color: red;
-                  color: #ffffff;
-                  border: none;
-                  height: 30px;
-                  border-radius: 20px;
-                  cursor: pointer;
-                "
-                @click="deleteUlasan"
-              >
-                Delete
-              </button> -->
             </el-col>
           </el-row>
         </div>
@@ -133,17 +118,6 @@
 </style>
 
 <script>
-// import { ref } from 'vue'
-// import { TabsPaneContext } from 'element-plus'
-
-// const value1 = ref(null)
-// const activeName = ref('first')
-// const textarea = ref('')
-
-// const handleClick = (tab: TabsPaneContext, event: Event) => {
-//   console.log(tab, event)
-// }
-
 import axios from "axios";
 
 export default {
@@ -156,13 +130,10 @@ export default {
       fasils: {},
       category: [],
       user: {},
+      loading: true,
     };
   },
   mounted() {
-    // this.getDataClassDetail();
-    // this.getFasilDetail();
-    // this.getfasildetails();
-    // this.getDataCategory();
     this.getUserClass();
     this.getName();
   },
@@ -217,7 +188,7 @@ export default {
             },
           }
         );
-        // this.loading = false;
+        this.loading = false;
         this.user_kelas = response.data;
         this.kelas = response.data.class;
         this.fasils = response.data.class.class_fasil;
@@ -241,83 +212,6 @@ export default {
         console.error("Error fetching user classes:", error);
       }
     },
-
-    //   async getDataClassDetail() {
-    //     try {
-    //       const response = await axios.get(
-    //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-    //         {
-    //           headers: {
-    //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //           },
-    //         }
-    //       );
-    //       // this.loading = false;
-    //       this.kelas = response.data.class;
-    //       console.log(this.kelas);
-    //     } catch (error) {
-    //       console.error("Error fetching user classes:", error);
-    //     }
-    //   },
-
-    //   async getDataCategory() {
-    //     try {
-    //       const response = await axios.get(
-    //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-    //         {
-    //           headers: {
-    //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //           },
-    //         }
-    //       );
-
-    //       this.category = response.data.class.category;
-    //       console.log(this.category);
-    //     } catch (error) {
-    //       console.error("Error fetching user classes:", error);
-    //     }
-    //   },
-
-    //   async getFasilDetail() {
-    //     try {
-    //       const response = await axios.get(
-    //         `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-    //         {
-    //           headers: {
-    //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //           },
-    //         }
-    //       );
-
-    //       this.fasil = response.data.class.class_fasil;
-    //       console.log(this.fasil);
-    //     } catch (error) {
-    //       console.error("Error fetching user classes:", error);
-    //     }
-    //   },
-
-    //   async getfasildetails() {
-    //     const response = await axios.get(
-    //       `http://127.0.0.1:8000/api/user/classes/${this.id}`,
-    //       {
-    //         headers: {
-    //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //         },
-    //       }
-    //     );
-    //     this.fasilDetailvalue = response.data.class.class_fasil;
-    //     // .map(
-    //     //   (fasilDetail) => {
-    //     //     return {
-    //     //       fasilId: fasilDetail.id,
-    //     //       fasilName: fasilDetail.fasil.fasil_name,
-    //     //       fasilDesc: fasilDetail.fasil.fasil_desc,
-    //     //       fasilPhoto: fasilDetail.fasil.fasil_photo,
-    //     //     };
-    //     //   }
-    //     // );
-    //     console.log(this.fasilDetailvalue);
-    //   },
   },
 };
 </script>

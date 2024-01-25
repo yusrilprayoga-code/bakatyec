@@ -31,8 +31,8 @@
       <i class="bx bxs-bell"></i>
     </el-menu-item>
     <el-menu-item v-show="loginAuth">
-      <el-dropdown :hide-on-click="false">
-        <span class="el-dropdown-link">
+      <el-dropdown :hide-on-click="false" >
+        <span class="el-dropdown-link" v-loading="data.loading">
           <i class="bx bxs-user"></i>
           {{ data.User }}
         </span>
@@ -70,8 +70,9 @@ import { computed, onMounted, reactive, ref } from "vue";
 import { ElNotification, ElDropdown } from "element-plus";
 
 const data = reactive({
-  User: [],
+  User: "loading...",
   logout: [],
+  loading: true,
 });
 
 const activeIndex2 = ref("1");
@@ -126,6 +127,7 @@ const fetchUser = async () => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
+    data.loading = false; 
     data.User = response.data.name;
   } catch (error) {
     console.log(error);
@@ -139,9 +141,6 @@ onMounted(() => {
 </script>
 
 <style>
-/* .flex-grow { 
-        flex-grow: 1;
-    } */
 .navbar {
   flex-direction: row;
   justify-content: flex-end;

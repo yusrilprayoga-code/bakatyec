@@ -1,6 +1,6 @@
 <template>
   <div class="boxContent">
-    <el-progress class="content" :color="customColor" :percentage="progressPercentage" />
+      <el-progress class="content" :color="customColor" :percentage="progressPercentage" />
     <el-tabs
       style="padding: 10px"
       v-model="activeName2"
@@ -170,6 +170,7 @@ export default {
       activeName2: "pertama",
       subActivity: [], // jumlah activity yang telah dibuka
       checkIcons: [],
+      loading: true,
       id: this.$route.params.id,
       activity: {},
       completed: [],
@@ -260,7 +261,7 @@ export default {
             },
           }
         );
-
+          
         this.activity = response.data.class.class_activity.map(
           (classActivityItem) => {
             return {
@@ -289,13 +290,16 @@ export default {
   },
 
   computed: {
-    progressPercentage() {
+  progressPercentage() {
+    if (this.subActivity.length > 0) {
       return (
-        (this.completed.length / this.subActivity.length) *
-        100.0
+        (this.completed.length / this.subActivity.length) * 100.0
       ).toFixed(2);
-    },
+    } else {
+      return 0;
+    }
   },
+},
 
   mounted() {
     this.getClassActivity();
