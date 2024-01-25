@@ -6,6 +6,7 @@
       v-model="activeName2"
       class="demo-tabs"
       @tab-click="handleClick"
+      v-loading="loading"
     >
       <el-tab-pane label="Aktivitas" name="pertama">
         <el-scrollbar height="auto">
@@ -261,7 +262,7 @@ export default {
             },
           }
         );
-          
+        this.loading = false;
         this.activity = response.data.class.class_activity.map(
           (classActivityItem) => {
             return {

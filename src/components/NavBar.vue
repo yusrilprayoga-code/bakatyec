@@ -32,7 +32,7 @@
     </el-menu-item>
     <el-menu-item v-show="loginAuth">
       <el-dropdown :hide-on-click="false" >
-        <span class="el-dropdown-link" v-loading="data.loading">
+        <span class="el-dropdown-link">
           <i class="bx bxs-user"></i>
           {{ data.User }}
         </span>
@@ -127,7 +127,6 @@ const fetchUser = async () => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    data.loading = false; 
     data.User = response.data.name;
   } catch (error) {
     console.log(error);
