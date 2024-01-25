@@ -7,11 +7,6 @@
             <h3 class="text is-bold">
               Redeem Voucher Kelas yang Sudah Anda Beli
               <p
-                style="
-                  margin-left: 30px;
-                  justify-content: center;
-                  align-items: center;
-                "
               >
                 Dengan Akun {{ name }} (62882007074645)
               </p>
@@ -114,7 +109,7 @@
         class="tab-class"
       >
         <el-tab-pane label="Kelas Satuan" name="first">
-          <div v-if="activeName === 'first'">
+          <div v-if="activeName === 'first'" >
             <!-- Card Class Menu -->
             <card-class-menu />
             

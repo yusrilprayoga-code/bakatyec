@@ -3,7 +3,6 @@ strong {
 }
 .container {
   margin: 0 auto;
-  width: 70%;
 }
 .tab-class {
   margin: 0 auto;
@@ -21,10 +20,8 @@ strong {
 }
 .card-class {
   border-radius: 10px;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
 }
+
 .cards-price {
   font-size: 16px;
   font-weight: bold;
@@ -54,6 +51,7 @@ strong {
   margin-bottom: 20px;
   margin-top: 50px;
 }
+
 .custom-button {
   width: 100%;
   border-radius: 10px;
@@ -86,19 +84,15 @@ strong {
   margin: 50px auto;
 }
 
-
 .text {
   font-size: 24px;
-  text-align: center;
+  text-align: left;
 }
 
 .card-redeem h3 {
   font-size: 18px;
 }
 
-.item {
-  padding: 18px 0;
-}
 
 .box-card {
   width: 90%;
@@ -107,6 +101,7 @@ strong {
 .flex-containerOne {
   display: flex;
   justify-content: center;
+  width: 100% !important;
 }
 
 .col-container {
@@ -121,15 +116,6 @@ strong {
 .flex-container {
   display: flex;
   justify-content: center;
-}
-
-.left-col {
-  order: 2;
-}
-
-.right-col {
-  order: 1;
-  margin: 50px auto;
 }
 
 .right-content {
@@ -151,10 +137,6 @@ strong {
   margin: 0 auto;
 }
 
-.loading {
-  background: none;
-}
-
 .buttonMore {
   display: flex;
   justify-content: center;
@@ -170,14 +152,9 @@ strong {
     justify-content: center;
   }
 
-  .col-container {
-    margin: 10px;
-  }
-
   .flex-containerCard {
     display: flex;
     justify-content: center;
-    margin-top: -85px;
   }
 
   .flex-container {

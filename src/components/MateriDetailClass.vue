@@ -64,7 +64,9 @@
       </el-tab-pane>
       <el-tab-pane label="Ulasan" name="second">
         <div class="content" v-if="user_kelas.progress != 100">
-          <h2>Anda harus menyelesaikan kelas ini terlebih dahulu</h2>
+          <h2 style="text-align: center;">
+            Anda belum dapat memberikan ulasan karena kelas belum selesai
+          </h2>
         </div>
         <div class="content"  v-if="user_kelas.progress == 100">
           <h2>Ulasan Anda</h2>
