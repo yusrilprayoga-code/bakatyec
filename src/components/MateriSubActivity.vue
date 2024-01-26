@@ -7,7 +7,7 @@
         :key="subActivityItem.subActivityId"
       >
         <div
-          v-if="
+          v-show="
             subActivityItem.subActvityType == 'Menonton Video' &&
             subActivityItem.subActivityId == param
           "
@@ -92,48 +92,16 @@
                 </el-result>
               </el-col>
             <input
+            class="upload-file"
               v-if="!subActivityItem.progress[0]"
               type="file"
               @change="uploadFile"
             />
-            <!-- <el-upload
-              class="upload-demo" 
-              drag
-              action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-              multiple
-            >
-              <el-icon class="el-icon--upload">
-               <i class='bx bxs-cloud-upload'></i>
-              </el-icon>
-              <div class="el-upload__text">
-                Drop file here or <em>click to upload</em>
-              </div>
-              <template #tip>
-                <div class="el-upload__tip">
-                  Allowed file types: pdf. Max file size: 500kb.
-                </div>
-              </template>
-            </el-upload> -->
           </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div id="1" style="display: none">
-      <img src="../assets/1.png" width="100%" height="auto" alt="" />
-    </div>
-    <div id="2" style="display: none">
-      <iframe
-        width="100%"
-        style="height: 30vw"
-        src="https://www.youtube.com/embed/RunuGmKxwCU?si=UoTb7sFXGWFxLmNl"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-      <hr />
-    </div> -->
   </div>
 </template>
 <script>
@@ -164,20 +132,24 @@ export default {
     },
 
     async uploadFile(e) {
-      console.log(e.target.files[0]);
-      await axios.post(
-        `http://127.0.0.1:8000/api/user/sub_activity/${this.param}`,
-        {
-          file: e.target.files[0],
+  if (e.target && e.target.files && e.target.files.length > 0) {
+    console.log(e.target.files[0]);
+    await axios.post(
+      `http://127.0.0.1:8000/api/user/sub_activity/${this.param}`,
+      {
+        file: e.target.files[0],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
         },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-    },
+      }
+    );
+  } else {
+    console.error("No files selected.");
+  }
+},
     async submitJawaban() {
       await axios.post(
         `http://127.0.0.1:8000/api/user/sub_activity/${this.param}`,
@@ -252,6 +224,13 @@ export default {
     justify-content: center;
     align-items: center ;
   } 
+
+  .upload-file {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #f05326;
+  }
 
   .upload {
     padding: 10px;

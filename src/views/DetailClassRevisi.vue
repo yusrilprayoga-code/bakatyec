@@ -16,7 +16,7 @@
         <MateriSubActivity :param= this.pilih v-if="pilih"/>
         <MateriDetailClass v-if="!pilih"/>
       </el-col>
-      <el-col :span="24" :md="{ span: 8 }">
+      <el-col class="activitydetail" :span="24" :md="{ span: 8 }">
         <ActivityDetailClass @task="getPilih" />
       </el-col>
     </el-row>

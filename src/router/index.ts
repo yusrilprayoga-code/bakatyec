@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ClassMenu from '../views/ClassMenu.vue'
-// import DetailClass from '../views/DetailClass.vue'
 import DetailCopy from '../views/DetailClassRevisi.vue'
 import LoginVue from '@/views/Login.vue'
 

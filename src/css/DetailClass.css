@@ -6,6 +6,12 @@ el-link {
     width: 80%;
 }
 
+@media screen and (max-width: 768px) {
+    .activitydetail {
+        margin-top: 20px;
+    }
+}
+
 .boxContent {
     background-color: #ffffff;
 }
